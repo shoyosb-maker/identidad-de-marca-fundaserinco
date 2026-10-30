@@ -1,0 +1,2103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="shell-type" content="web_standard">
+  <meta name="theme-color" content="#0f1019">
+  <title>Fundaserinco — Brand Hub &amp; Design System v1.0</title>
+
+  <meta name="description" content="Manual de marca Fundaserinco: anatomía del logo, colorimetría, tipografía y componentes UI. Sistema de diseño v1.0.">
+  <link rel="canonical" href="https://www.fundaserinco.com/">
+
+  <!-- Open Graph / tarjeta al compartir (WhatsApp, LinkedIn, Facebook) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Fundaserinco">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:url" content="https://www.fundaserinco.com/">
+  <meta property="og:title" content="Fundaserinco — Marca y sistema de diseño v1.0">
+  <meta property="og:description" content="Anatomía del logo, colorimetría, tipografía y componentes UI del sistema de diseño Fundaserinco.">
+  <meta property="og:image" content="https://www.fundaserinco.com/assets/img/og-fundaserinco.jpg">
+  <meta property="og:image:secure_url" content="https://www.fundaserinco.com/assets/img/og-fundaserinco.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Fundaserinco — Marca y sistema de diseño v1.0">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Fundaserinco — Marca y sistema de diseño v1.0">
+  <meta name="twitter:description" content="Anatomía del logo, colorimetría, tipografía y componentes UI del sistema de diseño Fundaserinco.">
+  <meta name="twitter:image" content="https://www.fundaserinco.com/assets/img/og-fundaserinco.jpg">
+  <meta name="twitter:image:alt" content="Fundaserinco — Marca y sistema de diseño v1.0">
+
+  <!-- Tema: se aplica antes del primer pintado para evitar el flash -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("fs-theme");
+        var dark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (dark) document.documentElement.classList.add("dark");
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/img/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+
+  <!-- Tailwind CDN + Config externo -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tailwind.config.js"></script>
+
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col">
+
+  <!-- ============ HEADER (identidad corporativa) ============ -->
+  <header class="app-header">
+    <div class="app-header__inner">
+
+      <a class="brand-lockup" href="#brand-overview-and-logo-anatomy" data-path="brand-overview-and-logo-anatomy" aria-label="Fundaserinco — Inicio">
+        <img class="brand-lockup__mark" src="assets/img/logo-simbolo.png" alt="Fundaserinco" width="34" height="34">
+        <span class="brand-lockup__text">
+          <span class="brand-lockup__name">Fundaserinco</span>
+          <span class="brand-lockup__sub">Brand Hub &amp; Design System</span>
+        </span>
+        <span class="brand-lockup__badge">v1.0 Oficial</span>
+      </a>
+
+      <nav id="main-nav" class="app-nav" aria-label="Brand manual sections">
+        <a data-path="brand-overview-and-logo-anatomy" href="#brand-overview-and-logo-anatomy" class="nav-link">Brand &amp; Logo</a>
+        <a data-path="colorimetry-and-palettes" href="#colorimetry-and-palettes" class="nav-link">Colorimetry</a>
+        <a data-path="typography-and-scale" href="#typography-and-scale" class="nav-link">Typography</a>
+        <a data-path="component-library-and-ui-specs" href="#component-library-and-ui-specs" class="nav-link">UI Components</a>
+      </nav>
+
+      <div class="app-tools">
+        <div class="lang-switch" role="group" aria-label="Language / Idioma">
+          <button type="button" class="lang-btn" data-lang-btn="es" aria-pressed="false">ES</button>
+          <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="true">EN</button>
+        </div>
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <span class="material-symbols-outlined" id="theme-icon" aria-hidden="true">dark_mode</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ============ TOAST (compartido) ============ -->
+  <div class="fixed bottom-6 right-6 z-50 transform translate-y-16 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-space-sm px-space-md py-3 bg-inverse-surface text-inverse-on-surface rounded-xl shadow-xl font-label-md text-label-md"
+       id="copy-toast">
+    <span class="material-symbols-outlined text-[20px] text-inverse-primary" style="font-variation-settings:'FILL' 1;">check_circle</span>
+    <span id="toast-text">Color token copied to clipboard</span>
+  </div>
+
+  <!-- ============ MAIN CON 3 SECCIONES ============ -->
+  <main class="w-full app-main bg-surface flex-1">
+
+    <!-- ⬇️ SECCIÓN 1: LOGO ANATOMY (contenido de "code (9).html") -->
+    <section data-page="brand-overview-and-logo-anatomy" class="hidden">
+      <div class="flex flex-col w-full">
+        <div class="relative w-full overflow-hidden bg-gradient-to-b from-surface-container-low via-surface to-surface-container-lowest py-space-xl">
+        <div class="absolute inset-0 pointer-events-none opacity-40">
+        <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+        <pattern height="40" id="blueprint-grid" patternUnits="userSpaceOnUse" width="40">
+        <path class="text-surface-container-highest" d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="0.75"></path>
+        <circle class="text-outline-variant" cx="40" cy="40" fill="currentColor" r="1.5"></circle>
+        </pattern>
+        </defs>
+        <rect fill="url(#blueprint-grid)" height="100%" width="100%"></rect>
+        </svg>
+        </div>
+        <div class="relative max-w-7xl mx-auto px-gutter flex flex-col gap-space-xl">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg">
+        <div class="flex flex-col gap-space-sm max-w-3xl">
+        <div class="inline-flex items-center gap-space-xs self-start px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm tracking-widest uppercase">
+        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                    Technical Identity System • Section 01
+                  </div>
+        <h1 class="font-display-lg text-display-lg text-on-surface tracking-tight leading-none">
+                    Logo Anatomy &amp; Construction
+                  </h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    Official structural taxonomy, spatial clearance ratios, and architectural metrics for the Fundaserinco corporate visual token. Built for systematic fidelity across digital frameworks and physical tactile media.
+                  </p>
+        </div>
+        <div class="flex flex-wrap items-center justify-end gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+        <span class="px-2 py-0.5 rounded bg-surface-container-high">Ratio 1:1.8</span>
+        <span class="px-2 py-0.5 rounded bg-surface-container-high">Kerning: Geometric Modern</span>
+        <a class="inline-flex items-center gap-1.5 px-space-md py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md shadow-sm hover:bg-primary-container transition-colors" href="assets/img/logo-fundaserinco.png" download="fundaserinco-logo-principal.png">
+        <span class="material-symbols-outlined text-[18px]">download</span>
+        <span class="">Download logo (PNG)</span>
+        </a>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="w-full bg-surface py-space-xl">
+        <div class="max-w-7xl mx-auto px-gutter flex flex-col gap-space-xl">
+        <div class="flex flex-col gap-space-xs">
+        <span class="font-caption text-caption text-primary uppercase tracking-widest font-semibold">Blueprint Decomposition</span>
+        <h2 class="font-headline-xl text-headline-xl text-on-surface">Logo Morphology &amp; Semantic Grid</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+                  The Fundaserinco visual identity combines programmatic fluidity with architectural solidity. The dynamic assembly communicates seamless institutional stability intersecting with modern digital data transformation.
+                </p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-stretch">
+        <div class="lg:col-span-7 bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm flex flex-col justify-between relative overflow-hidden">
+        <div class="flex items-center justify-between pb-space-md">
+        <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-[20px]">grid_4x4</span>
+        <span class="font-headline-sm text-headline-sm text-on-surface">Construction Grid &amp; The 'X' Coordinate</span>
+        </div>
+        <span class="px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-caption text-caption font-semibold">1X = 24px Baseline</span>
+        </div>
+        <div class="relative w-full aspect-video bg-surface-container-low rounded-xl p-space-md flex items-center justify-center overflow-hidden">
+        <svg class="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+        <pattern height="24" id="diag-x" patternUnits="userSpaceOnUse" width="24">
+        <rect class="text-outline-variant/40" fill="none" height="24" stroke="currentColor" stroke-width="0.5" width="24"></rect>
+        </pattern>
+        </defs>
+        <rect fill="url(#diag-x)" height="100%" width="100%"></rect>
+        <rect class="text-secondary/70" fill="none" height="70%" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1.5" width="70%" x="15%" y="15%"></rect>
+        <line class="text-primary/40" stroke="currentColor" stroke-width="1" x1="15%" x2="15%" y1="0" y2="100%"></line>
+        <line class="text-primary/40" stroke="currentColor" stroke-width="1" x1="85%" x2="85%" y1="0" y2="100%"></line>
+        <line class="text-primary/40" stroke="currentColor" stroke-width="1" x1="0" x2="100%" y1="15%" y2="15%"></line>
+        <line class="text-primary/40" stroke="currentColor" stroke-width="1" x1="0" x2="100%" y1="85%" y2="85%"></line>
+        </svg>
+        <div class="relative z-10 flex flex-col items-center">
+        <img alt="Fundaserinco Grid Breakdown" class="h-36 object-contain drop-shadow" src="assets/img/logo-fundaserinco.png">
+        </div>
+        <div class="absolute bottom-2 left-3 font-caption text-caption text-on-surface-variant bg-surface/90 px-2 py-0.5 rounded shadow-sm">
+                      Safe Zone Margin: 1.0X All Edges
+                    </div>
+        <div class="absolute top-2 right-3 font-caption text-caption text-secondary font-semibold bg-surface/90 px-2 py-0.5 rounded shadow-sm">
+                      Clearance Boundary = 1X [24px]
+                    </div>
+        </div>
+        <div class="grid grid-cols-3 gap-space-sm pt-space-md">
+        <div class="p-space-sm rounded-lg bg-surface-container flex flex-col">
+        <span class="font-caption text-caption text-on-surface-variant uppercase">Grid Module (X)</span>
+        <span class="font-label-md text-label-md text-primary font-bold">24px Core</span>
+        <span class="font-body-sm text-body-sm text-on-surface-variant">Equivalent to wordmark 'f' stem</span>
+        </div>
+        <div class="p-space-sm rounded-lg bg-surface-container flex flex-col">
+        <span class="font-caption text-caption text-on-surface-variant uppercase">Vertical Clearance</span>
+        <span class="font-label-md text-label-md text-primary font-bold">1X Top / Bottom</span>
+        <span class="font-body-sm text-body-sm text-on-surface-variant">Mandatory void area</span>
+        </div>
+        <div class="p-space-sm rounded-lg bg-surface-container flex flex-col">
+        <span class="font-caption text-caption text-on-surface-variant uppercase">Horizontal Clearance</span>
+        <span class="font-label-md text-label-md text-primary font-bold">1X Left / Right</span>
+        <span class="font-body-sm text-body-sm text-on-surface-variant">Free from all intrusion</span>
+        </div>
+        </div>
+        </div>
+        <div class="lg:col-span-5 flex flex-col gap-space-md">
+        <div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
+        <div class="flex items-center gap-space-xs text-primary">
+        <span class="material-symbols-outlined text-[24px]">stream</span>
+        <span class="font-headline-sm text-headline-sm text-on-surface">The Isotype Architecture</span>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant">
+                      The symbol incorporates three intertwined mechanical motifs:
+                    </p>
+        <ul class="flex flex-col gap-space-sm pt-space-xs">
+        <li class="flex items-start gap-space-xs">
+        <span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">change_circle</span>
+        <div class="flex flex-col">
+        <span class="font-label-md text-label-md text-on-surface">The Dynamic Orbital Arc</span>
+        <span class="font-body-sm text-body-sm text-on-surface-variant">Smooth cyan sweep traversing through the sphere representing continuous operational continuity and institutional elevation.</span>
+        </div>
+        </li>
+        <li class="flex items-start gap-space-xs">
+        <span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">widgets</span>
+        <div class="flex flex-col">
+        <span class="font-label-md text-label-md text-on-surface">Modular Pixel Array</span>
+        <span class="font-body-sm text-body-sm text-on-surface-variant">Segmented digital blocks simulating organized databases, computational rigor, and algorithmic precision.</span>
+        </div>
+        </li>
+        <li class="flex items-start gap-space-xs">
+        <span class="material-symbols-outlined text-secondary-container text-[20px] shrink-0 mt-0.5">adjust</span>
+        <div class="flex flex-col">
+        <span class="font-label-md text-label-md text-on-surface">The Coral Counterweight</span>
+        <span class="font-body-sm text-body-sm text-on-surface-variant">Warm coral crescent framing the upper perimeter, lending human balance and approachable energy to the institutional blues.</span>
+        </div>
+        </li>
+        </ul>
+        </div>
+        <div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
+        <div class="flex items-center gap-space-xs text-tertiary">
+        <span class="material-symbols-outlined text-[24px]">match_word</span>
+        <span class="font-headline-sm text-headline-sm text-on-surface">Logotype Typography Spec</span>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant">
+                      Custom geometric lowercase script designed for optical legibility and rhythmic flow. Softened curvature on letter terminals aligns with the circular geometry of the upper isotype.
+                    </p>
+        <div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low">
+        <div class="flex flex-col">
+        <span class="font-caption text-caption text-on-surface-variant uppercase">Optical Balance</span>
+        <span class="font-label-md text-label-md text-on-surface">Zero baseline ascenders</span>
+        </div>
+        <div class="flex flex-col">
+        <span class="font-caption text-caption text-on-surface-variant uppercase">Kerning Vector</span>
+        <span class="font-label-md text-label-md text-on-surface">+1.5% Monospaced Track</span>
+        </div>
+        <div class="flex flex-col">
+        <span class="font-caption text-caption text-on-surface-variant uppercase">Stroke Weight</span>
+        <span class="font-label-md text-label-md text-on-surface">Uniform 4.2pt Vector</span>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="w-full bg-surface-container-low py-space-xl">
+        <div class="max-w-7xl mx-auto px-gutter flex flex-col gap-space-xl">
+        <div class="flex flex-col gap-space-xs">
+        <span class="font-caption text-caption text-secondary uppercase tracking-widest font-semibold">Reproduction Thresholds</span>
+        <h2 class="font-headline-xl text-headline-xl text-on-surface">Minimum Reproduction Scale</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+                  To maintain visual legibility and prevent micro-pixel degradation, Fundaserinco lockups must never be scaled below these verified optical tolerances.
+                </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+        <div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col items-center text-center gap-space-md">
+        <div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+        <span class="material-symbols-outlined text-[24px]">desktop_windows</span>
+        </div>
+        <div class="flex flex-col gap-1">
+        <span class="font-headline-sm text-headline-sm text-on-surface">Digital Screens</span>
+        <span class="font-caption text-caption text-on-surface-variant uppercase tracking-wide">Web, App &amp; Interface UI</span>
+        </div>
+        <div class="p-space-md rounded-xl bg-surface-container-low w-full flex flex-col items-center gap-2">
+        <div class="h-10 flex items-center justify-center">
+        <img alt="Fundaserinco Digital Minimum" class="w-32 object-contain" src="assets/img/logo-fundaserinco.png">
+        </div>
+        <span class="font-label-md text-label-md text-primary font-bold">120px Width</span>
+        <span class="font-caption text-caption text-on-surface-variant">72dpi Screen Render Minimum</span>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">Below 120px, transition to the standalone Isotype mark (32px minimum).</p>
+        </div>
+        <div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col items-center text-center gap-space-md">
+        <div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+        <span class="material-symbols-outlined text-[24px]">print</span>
+        </div>
+        <div class="flex flex-col gap-1">
+        <span class="font-headline-sm text-headline-sm text-on-surface">Offset &amp; Print</span>
+        <span class="font-caption text-caption text-on-surface-variant uppercase tracking-wide">Stationery &amp; Merchandising</span>
+        </div>
+        <div class="p-space-md rounded-xl bg-surface-container-low w-full flex flex-col items-center gap-2">
+        <div class="h-10 flex items-center justify-center">
+        <img alt="Fundaserinco Print Minimum" class="w-28 object-contain" src="assets/img/logo-fundaserinco.png">
+        </div>
+        <span class="font-label-md text-label-md text-secondary font-bold">25 mm Width</span>
+        <span class="font-caption text-caption text-on-surface-variant">300dpi High-Res Lithography</span>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">Maintains dot-matrix integrity on uncoated corporate paper stocks.</p>
+        </div>
+        <div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col items-center text-center gap-space-md">
+        <div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center text-tertiary">
+        <span class="material-symbols-outlined text-[24px]">app_shortcut</span>
+        </div>
+        <div class="flex flex-col gap-1">
+        <span class="font-headline-sm text-headline-sm text-on-surface">Favicon &amp; App Icon</span>
+        <span class="font-caption text-caption text-on-surface-variant uppercase tracking-wide">Micro Application Dots</span>
+        </div>
+        <div class="p-space-md rounded-xl bg-surface-container-low w-full flex flex-col items-center gap-2">
+        <div class="w-10 h-10 rounded-lg bg-surface-container-lowest shadow-sm flex items-center justify-center overflow-hidden">
+        <img alt="Fundaserinco Icon Minimal" class="scale-[2.4] translate-y-1 object-contain" src="assets/img/logo-fundaserinco.png">
+        </div>
+        <span class="font-label-md text-label-md text-tertiary font-bold">24px x 24px</span>
+        <span class="font-caption text-caption text-on-surface-variant">Favicon / Browser Tab Target</span>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">Isolate the dynamic orbital swoosh without the wordmark text.</p>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="w-full bg-surface py-space-xl">
+        <div class="max-w-7xl mx-auto px-gutter flex flex-col gap-space-xl">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md">
+        <div class="flex flex-col gap-space-xs">
+        <span class="font-caption text-caption text-primary uppercase tracking-widest font-semibold">Asset Inventory</span>
+        <h2 class="font-headline-xl text-headline-xl text-on-surface">Authorized Brand Configurations</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+                    Choose between horizontal horizontal lockups, centered primary formats, and negative inverted applications based on context and color contrast requirements.
+                  </p>
+        </div>
+        <div class="flex items-center gap-space-xs p-1 bg-surface-container rounded-xl self-start">
+        <button class="px-space-md py-1.5 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm" type="button">All Variants (4)</button>
+        <button class="px-space-md py-1.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-colors" type="button">Positive</button>
+        <button class="px-space-md py-1.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-colors" type="button">Negative</button>
+        </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+        <div class="rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col gap-space-md">
+        <div class="flex items-center justify-between">
+        <span class="font-label-md text-label-md text-on-surface font-semibold">Variant A • Full Primary Lockup (Light Canvas)</span>
+        <span class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-caption text-caption">Default Standard</span>
+        </div>
+        <div class="w-full h-56 rounded-xl bg-surface-container-low flex items-center justify-center p-space-md">
+        <img alt="Fundaserinco Primary Light Lockup" class="h-32 object-contain" src="assets/img/logo-fundaserinco.png">
+        </div>
+        <div class="flex items-center justify-between pt-space-xs">
+        <span class="font-body-sm text-body-sm text-on-surface-variant">Recommended for light surfaces, corporate collateral, official stationary.</span>
+        <a class="inline-flex items-center gap-1 shrink-0 ml-2 whitespace-nowrap text-primary hover:text-primary-container font-label-sm text-label-sm font-semibold transition-colors" href="assets/img/logo-fundaserinco.png" download="fundaserinco-logo-principal.png">
+        <span class="">Download PNG</span>
+        <span class="material-symbols-outlined text-[16px]">file_download</span>
+        </a>
+        </div>
+        </div>
+        <div class="rounded-2xl bg-inverse-surface p-space-lg shadow-sm flex flex-col gap-space-md text-inverse-on-surface">
+        <div class="flex items-center justify-between">
+        <span class="font-label-md text-label-md font-semibold text-inverse-on-surface">Variant B • Inverted Negative (Dark Navy Canvas)</span>
+        <span class="px-2.5 py-0.5 rounded-full bg-surface-container-high/20 text-inverse-primary font-caption text-caption">High Contrast</span>
+        </div>
+        <div class="w-full h-56 rounded-xl bg-on-background flex items-center justify-center p-space-md relative overflow-hidden">
+        <div class="absolute inset-0 bg-primary/10 backdrop-blur-xs"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center">
+        <img alt="Fundaserinco Inverted Version" class="h-32 object-contain brightness-125 contrast-125 drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]" src="assets/img/logo-fundaserinco.png">
+        </div>
+        </div>
+        <div class="flex items-center justify-between pt-space-xs">
+        <span class="font-body-sm text-body-sm text-outline-variant">Authorized for dark mode interfaces, keynotes, and deep background applications.</span>
+        <a class="inline-flex items-center gap-1 shrink-0 ml-2 whitespace-nowrap text-inverse-primary hover:text-on-primary font-label-sm text-label-sm font-semibold transition-colors" href="assets/img/logo-fundaserinco.png" download="fundaserinco-logo-principal.png">
+        <span class="">Download PNG</span>
+        <span class="material-symbols-outlined text-[16px]">file_download</span>
+        </a>
+        </div>
+        </div>
+        <div class="rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col gap-space-md">
+        <div class="flex items-center justify-between">
+        <span class="font-label-md text-label-md text-on-surface font-semibold">Variant C • Standalone Isotype Symbol</span>
+        <span class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-caption text-caption">Icon Only</span>
+        </div>
+        <div class="w-full h-56 rounded-xl bg-surface-container-low flex items-center justify-center p-space-md overflow-hidden">
+        <div class="h-28 w-28 overflow-hidden flex items-center justify-center">
+        <img alt="Fundaserinco Symbol Standalone" class="object-contain" src="assets/img/logo-simbolo-512.png">
+        </div>
+        </div>
+        <div class="flex items-center justify-between pt-space-xs">
+        <span class="font-body-sm text-body-sm text-on-surface-variant">For avatars, watermarks, favicons, social tiles, and compact hardware tags.</span>
+        <a class="inline-flex items-center gap-1 shrink-0 ml-2 whitespace-nowrap text-primary hover:text-primary-container font-label-sm text-label-sm font-semibold transition-colors" href="assets/img/logo-simbolo-512.png" download="fundaserinco-isotipo-512.png">
+        <span class="">Download PNG</span>
+        <span class="material-symbols-outlined text-[16px]">file_download</span>
+        </a>
+        </div>
+        </div>
+        <div class="rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col gap-space-md">
+        <div class="flex items-center justify-between">
+        <span class="font-label-md text-label-md text-on-surface font-semibold">Variant D • Standalone Logotype Wordmark</span>
+        <span class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-caption text-caption">Typography Only</span>
+        </div>
+        <div class="w-full h-56 rounded-xl bg-surface-container-low flex items-center justify-center p-space-md overflow-hidden">
+        <div class="h-16 w-full overflow-hidden flex items-center justify-center">
+        <img alt="Fundaserinco Wordmark Standalone" class="object-contain" src="assets/img/logo-wordmark.png">
+        </div>
+        </div>
+        <div class="flex items-center justify-between pt-space-xs">
+        <span class="font-body-sm text-body-sm text-on-surface-variant">Reserved for horizontal header bars where vertical headroom is strictly restricted.</span>
+        <a class="inline-flex items-center gap-1 shrink-0 ml-2 whitespace-nowrap text-primary hover:text-primary-container font-label-sm text-label-sm font-semibold transition-colors" href="assets/img/logo-wordmark.png" download="fundaserinco-logotipo.png">
+        <span class="">Download PNG</span>
+        <span class="material-symbols-outlined text-[16px]">file_download</span>
+        </a>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="w-full bg-surface py-space-xl">
+        <div class="max-w-7xl mx-auto px-gutter flex flex-col gap-space-xl">
+        <div class="flex flex-col gap-space-xs">
+        <span class="font-caption text-caption text-error uppercase tracking-widest font-semibold">Quality Assurance</span>
+        <h2 class="font-headline-xl text-headline-xl text-on-surface">Incorrect Usages &amp; Restraints</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+                  The integrity of the Fundaserinco corporate symbol must never be compromised. The following modifications are strictly prohibited across all digital and print mediums.
+                </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
+        <div class="rounded-2xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col gap-space-sm relative overflow-hidden">
+        <div class="h-44 rounded-xl bg-surface-container-low flex items-center justify-center p-space-md relative overflow-hidden">
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <span class="material-symbols-outlined text-error text-[80px] opacity-25">cancel</span>
+        </div>
+        <img alt="Incorrect: Stretched" class="h-24 w-full scale-x-150 object-contain opacity-70" src="assets/img/logo-fundaserinco.png">
+        </div>
+        <div class="flex items-start gap-2 pt-1">
+        <span class="material-symbols-outlined text-error text-[20px] shrink-0 mt-0.5">do_not_disturb</span>
+        <div class="flex flex-col">
+        <span class="font-label-md text-label-md text-on-surface font-semibold">Do Not Distort / Stretch</span>
+        <span class="font-body-sm text-body-sm text-on-surface-variant">Always lock aspect ratios 1:1 during scaling operations.</span>
+        </div>
+        </div>
+        </div>
+        <div class="rounded-2xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col gap-space-sm relative overflow-hidden">
+        <div class="h-44 rounded-xl bg-surface-container-low flex items-center justify-center p-space-md relative overflow-hidden">
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <span class="material-symbols-outlined text-error text-[80px] opacity-25">cancel</span>
+        </div>
+        <img alt="Incorrect: Recolor" class="h-24 object-contain filter hue-rotate-90 opacity-70" src="assets/img/logo-fundaserinco.png">
+        </div>
+        <div class="flex items-start gap-2 pt-1">
+        <span class="material-symbols-outlined text-error text-[20px] shrink-0 mt-0.5">do_not_disturb</span>
+        <div class="flex flex-col">
+        <span class="font-label-md text-label-md text-on-surface font-semibold">Do Not Alter Official Palette</span>
+        <span class="font-body-sm text-body-sm text-on-surface-variant">Never replace Orbit Cyan or Kinetic Coral with unapproved hues.</span>
+        </div>
+        </div>
+        </div>
+        <div class="rounded-2xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col gap-space-sm relative overflow-hidden">
+        <div class="h-44 rounded-xl bg-surface-container-low flex items-center justify-center p-space-md relative overflow-hidden">
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <span class="material-symbols-outlined text-error text-[80px] opacity-25">cancel</span>
+        </div>
+        <img alt="Incorrect: Heavy Shadow" class="h-24 object-contain drop-shadow-[0_15px_10px_rgba(0,0,0,0.8)] opacity-70" src="assets/img/logo-fundaserinco.png">
+        </div>
+        <div class="flex items-start gap-2 pt-1">
+        <span class="material-symbols-outlined text-error text-[20px] shrink-0 mt-0.5">do_not_disturb</span>
+        <div class="flex flex-col">
+        <span class="font-label-md text-label-md text-on-surface font-semibold">Do Not Add Drop Shadows or Glows</span>
+        <span class="font-body-sm text-body-sm text-on-surface-variant">Keep flat vector reproduction; ornamental filter effects are strictly barred.</span>
+        </div>
+        </div>
+        </div>
+        <div class="rounded-2xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col gap-space-sm relative overflow-hidden">
+        <div class="h-44 rounded-xl bg-surface-container-low flex items-center justify-center p-space-md relative overflow-hidden">
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <span class="material-symbols-outlined text-error text-[80px] opacity-25">cancel</span>
+        </div>
+        <div class="relative flex items-center">
+        <img alt="Incorrect: Crowded" class="h-24 object-contain opacity-70" src="assets/img/logo-fundaserinco.png">
+        <div class="absolute inset-0 flex items-center justify-center">
+        <span class="bg-primary text-on-primary font-headline-sm text-headline-sm px-2 py-1 rounded">Text Intrusion</span>
+        </div>
+        </div>
+        </div>
+        <div class="flex items-start gap-2 pt-1">
+        <span class="material-symbols-outlined text-error text-[20px] shrink-0 mt-0.5">do_not_disturb</span>
+        <div class="flex flex-col">
+        <span class="font-label-md text-label-md text-on-surface font-semibold">Do Not Violate Clear Space (1X)</span>
+        <span class="font-body-sm text-body-sm text-on-surface-variant">No external headlines or design elements may breach the safe clearance zone.</span>
+        </div>
+        </div>
+        </div>
+        <div class="rounded-2xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col gap-space-sm relative overflow-hidden">
+        <div class="h-44 rounded-xl flex items-center justify-center p-space-md relative overflow-hidden bg-gradient-to-r from-secondary via-primary to-surface-variant">
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <span class="material-symbols-outlined text-on-primary text-[80px] opacity-40">cancel</span>
+        </div>
+        <img alt="Incorrect: Clashing Background" class="h-24 object-contain opacity-80" src="assets/img/logo-fundaserinco.png">
+        </div>
+        <div class="flex items-start gap-2 pt-1">
+        <span class="material-symbols-outlined text-error text-[20px] shrink-0 mt-0.5">do_not_disturb</span>
+        <div class="flex flex-col">
+        <span class="font-label-md text-label-md text-on-surface font-semibold">Do Not Place Over Busy Patterns</span>
+        <span class="font-body-sm text-body-sm text-on-surface-variant">Do not place over complex, low-contrast or high-frequency textures.</span>
+        </div>
+        </div>
+        </div>
+        <div class="rounded-2xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col gap-space-sm relative overflow-hidden">
+        <div class="h-44 rounded-xl bg-surface-container-low flex items-center justify-center p-space-md relative overflow-hidden">
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <span class="material-symbols-outlined text-error text-[80px] opacity-25">cancel</span>
+        </div>
+        <div class="rotate-45 transform">
+        <img alt="Incorrect: Rotated" class="h-20 object-contain opacity-70" src="assets/img/logo-fundaserinco.png">
+        </div>
+        </div>
+        <div class="flex items-start gap-2 pt-1">
+        <span class="material-symbols-outlined text-error text-[20px] shrink-0 mt-0.5">do_not_disturb</span>
+        <div class="flex flex-col">
+        <span class="font-label-md text-label-md text-on-surface font-semibold">Do Not Rotate or Reorient</span>
+        <span class="font-body-sm text-body-sm text-on-surface-variant">The angle of the orbital arc is calibrated to horizontal baseline 0°.</span>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- ⬇️ SECCIÓN 2: COLORIMETRY (contenido de "code (7).html"; el toast vive en el header compartido) -->
+    <section data-page="colorimetry-and-palettes" class="hidden">
+      <div class="flex flex-col w-full">
+        <!-- Header & Metas Section -->
+        <div class="max-w-7xl mx-auto px-gutter py-space-xl w-full">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg pb-space-lg">
+        <div class="flex flex-col max-w-3xl">
+        <div class="flex items-center gap-space-sm mb-space-sm">
+        <span class="px-space-sm py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-caption text-caption uppercase tracking-wider">Fundaserinco Design System</span>
+        <span class="text-outline-variant font-caption text-caption">•</span>
+        <span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider">DS-SPEC-02 // COLORIMETRY</span>
+        </div>
+        <div class="flex items-center gap-3">
+        <span class="w-3.5 h-10 bg-primary rounded-full"></span>
+        <h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Colorimetry &amp; Chromatic Ratios</h1>
+        </div>
+        <p class="font-body-lg text-body-lg text-on-surface-variant mt-space-sm">
+                  The mathematical calibration of Fundaserinco's visual spectrum: pairing deep technological stability with energetic dynamic orbital accents, precision contrast thresholds, and production-ready tokens.
+                </p>
+        </div>
+        <!-- Quick Export Actions -->
+        <div class="flex flex-wrap items-center gap-space-xs shrink-0">
+        <button class="flex items-center gap-2 px-space-md py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-all shadow-sm active:scale-95" onclick="copyTokens('css')">
+        <span class="material-symbols-outlined text-[18px] text-primary">data_object</span>
+        <span class="">CSS Variables</span>
+        </button>
+        <button class="flex items-center gap-2 px-space-md py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-all shadow-sm active:scale-95" onclick="copyTokens('tailwind')">
+        <span class="material-symbols-outlined text-[18px] text-tertiary">code</span>
+        <span class="">Tailwind Config</span>
+        </button>
+        <button class="flex items-center gap-2 px-space-md py-2.5 rounded-xl bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md transition-all shadow-sm active:scale-95" onclick="copyTokens('json')">
+        <span class="material-symbols-outlined text-[18px]">content_copy</span>
+        <span class="">Copy JSON tokens</span>
+        </button>
+        </div>
+        </div>
+        <!-- Chromatic Philosophy & Spectral Balance Diagram -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg mt-space-md">
+        <!-- Philosophy Narrative Card -->
+        <div class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col justify-between relative overflow-hidden">
+        <div class="relative z-10">
+        <div class="flex items-center justify-between mb-space-md">
+        <span class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-semibold">01 / Foundation Archetype</span>
+        <span class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-caption text-caption">60-20-10 Rule Active</span>
+        </div>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface mb-space-sm tracking-tight">Chromatic Balance &amp; Symbiosis</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    The Fundaserinco chromatic grammar stems directly from the dynamic orbital mark: solid enterprise authority fused with agile digital transformation. <strong>Tech Blue</strong> anchors 60% of the visual space, conveying institutional trust and digital precision. The <strong>Solar Coral</strong> counterweight commands 20% high-attention interactions, preventing sterile corporate coldness through warmth and momentum.
+                  </p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md mt-space-lg">
+        <div class="p-space-md rounded-xl bg-surface-container-low flex flex-col">
+        <span class="font-caption text-caption text-on-surface-variant uppercase">Tech Stability</span>
+        <span class="font-headline-sm text-headline-sm text-primary mt-1">60%</span>
+        <span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Primary UI surfaces, dominant structural geometry.</span>
+        </div>
+        <div class="p-space-md rounded-xl bg-surface-container-low flex flex-col">
+        <span class="font-caption text-caption text-on-surface-variant uppercase">Solar Accent</span>
+        <span class="font-headline-sm text-headline-sm text-secondary mt-1">20%</span>
+        <span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Orbital sweep, conversion CTAs, micro-accents.</span>
+        </div>
+        <div class="p-space-md rounded-xl bg-surface-container-low flex flex-col">
+        <span class="font-caption text-caption text-on-surface-variant uppercase">Cyan Halos</span>
+        <span class="font-headline-sm text-headline-sm text-tertiary mt-1">10%</span>
+        <span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Gradients, light flares, and secondary data arrays.</span>
+        </div>
+        </div>
+        </div>
+        <!-- Ambient decorative vector orbit arc -->
+        <svg class="absolute -right-12 -bottom-16 w-80 h-80 opacity-15 pointer-events-none text-primary" fill="none" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="80" stroke="currentColor" stroke-dasharray="12 16" stroke-width="8"></circle>
+        <path d="M 20 100 Q 100 20 180 100" stroke="currentColor" stroke-linecap="round" stroke-width="12"></path>
+        </svg>
+        </div>
+        <!-- Ratio Visual Distribution Bar & Live Swatch Visualizer -->
+        <div class="lg:col-span-5 bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col justify-between">
+        <div>
+        <div class="flex items-center justify-between mb-space-md">
+        <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Hierarchy Spectrum</span>
+        <span class="font-caption text-caption text-outline font-mono">WEIGHT: 100% TOTAL</span>
+        </div>
+        <!-- Color Composition Bar -->
+        <div class="w-full h-10 rounded-xl overflow-hidden flex shadow-inner mb-space-md">
+        <div class="h-full bg-primary flex items-center justify-center text-on-primary font-caption text-caption tracking-wider" style="width: 60%;" title="Tech Blue: 60%">60% PRIMARY</div>
+        <div class="h-full bg-secondary flex items-center justify-center text-on-secondary font-caption text-caption tracking-wider" style="width: 20%;" title="Solar Coral: 20%">20% ACCENT</div>
+        <div class="h-full bg-tertiary-fixed-dim flex items-center justify-center text-on-tertiary-fixed font-caption text-caption tracking-wider" style="width: 10%;" title="Digital Sky: 10%">10%</div>
+        <div class="h-full bg-surface-container-high flex items-center justify-center text-on-surface-variant font-caption text-caption tracking-wider" style="width: 10%;" title="Neutrals: 10%">10%</div>
+        </div>
+        <!-- Brand Symbol Breakdown Widget -->
+        <div class="p-space-md rounded-xl bg-surface-container-low flex items-center gap-space-md">
+        <div class="w-16 h-16 rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-center shrink-0">
+        <svg class="w-12 h-12" viewBox="0 0 100 100">
+        <!-- Outer Arc Coral -->
+        <path d="M 38 18 A 38 38 0 0 1 76 68" fill="none" stroke="#F48A56" stroke-linecap="round" stroke-width="8"></path>
+        <!-- Inner Pixel Arrays (Cyan/Blue) -->
+        <rect fill="#0086C8" height="6" rx="1" width="6" x="25" y="32"></rect>
+        <rect fill="#0086C8" height="6" rx="1" width="6" x="34" y="27"></rect>
+        <rect fill="#4EA8DE" height="6" rx="1" width="6" x="23" y="42"></rect>
+        <rect fill="#0086C8" height="6" rx="1" width="6" x="32" y="37"></rect>
+        <rect fill="#4EA8DE" height="6" rx="1" width="6" x="42" y="32"></rect>
+        <rect fill="#0086C8" height="6" rx="1" width="6" x="26" y="52"></rect>
+        <rect fill="#0086C8" height="6" rx="1" width="6" x="36" y="47"></rect>
+        <rect fill="#4EA8DE" height="6" rx="1" width="6" x="46" y="42"></rect>
+        <rect fill="#0086C8" height="6" rx="1" width="6" x="33" y="62"></rect>
+        <rect fill="#0086C8" height="6" rx="1" width="6" x="44" y="56"></rect>
+        <rect fill="#4EA8DE" height="6" rx="1" width="6" x="54" y="50"></rect>
+        <!-- Orbital Swoosh -->
+        <path d="M 18 72 C 32 78 52 70 68 22" fill="none" stroke="#4EA8DE" stroke-linecap="round" stroke-width="4.5"></path>
+        </svg>
+        </div>
+        <div class="flex flex-col">
+        <span class="font-label-md text-label-md text-on-surface">Symbology Vector Geometry</span>
+        <span class="font-body-sm text-body-sm text-on-surface-variant">The dynamic logo pairs pixel arrays (0086C8) with the trajectory orbit (4EA8DE) and solar solar crest (F48A56).</span>
+        </div>
+        </div>
+        </div>
+        <div class="flex items-center justify-between pt-space-md">
+        <span class="font-caption text-caption text-on-surface-variant">Color Space: sRGB Profile 2.1</span>
+        <span class="font-caption text-caption text-primary font-mono">D65 / 6500K Standard</span>
+        </div>
+        </div>
+        </div>
+        </div>
+        <!-- Primary Palette Specification Cards -->
+        <div class="max-w-7xl mx-auto px-gutter pb-space-xl w-full">
+        <div class="flex items-center justify-between mb-space-lg">
+        <div>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Core Chromatic Palette</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant">Precise print and digital ink formulations for physical assets and production interfaces.</p>
+        </div>
+        <span class="hidden md:inline-block font-label-sm text-label-sm text-outline px-3 py-1 bg-surface-container rounded-lg font-mono">CLICK SWATCH TO COPY HEX</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-space-md">
+        <!-- 1. Tech Blue Card -->
+        <div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col group">
+        <button class="w-full h-36 relative" style="background:#006193" p-space-md flex flex-col justify-between text-left group-hover:opacity-95 transition-opacity" onclick="copyToClipboard('#0086C8', 'Tech Blue HEX')">
+        <div class="flex items-center justify-between">
+        <span class="px-2 py-0.5 rounded-full bg-[#ffffff]/20 backdrop-blur-sm text-[#ffffff] font-caption text-caption tracking-wider uppercase">Primary Dominant</span>
+        <span class="material-symbols-outlined text-[#ffffff] opacity-0 group-hover:opacity-100 transition-opacity text-[18px]">content_copy</span>
+        </div>
+        <div class="text-[#ffffff]">
+        <div class="font-headline-sm text-headline-sm font-bold">Tech Blue</div>
+        <div class="font-caption text-caption opacity-80 uppercase tracking-widest">Brand Keystone</div>
+        </div>
+        </button>
+        <div class="p-space-md flex flex-col gap-2 font-mono text-body-sm flex-1 justify-between">
+        <div class="space-y-1.5">
+        <div class="flex items-center justify-between">
+        <span class="text-on-surface-variant font-sans font-label-sm text-label-sm">HEX</span>
+        <span class="font-semibold text-primary">#0086C8</span>
+        </div>
+        <div class="flex items-center justify-between">
+        <span class="text-on-surface-variant font-sans font-label-sm text-label-sm">RGB</span>
+        <span class="text-on-surface">0, 134, 200</span>
+        </div>
+        <div class="flex items-center justify-between">
+        <span class="text-on-surface-variant font-sans font-label-sm text-label-sm">CMYK</span>
+        <span class="text-on-surface">82, 33, 0, 0</span>
+        </div>
+        <div class="flex items-center justify-between">
+        <span class="text-on-surface-variant font-sans font-label-sm text-label-sm">Pantone</span>
+        <span class="text-on-surface">2192 C</span>
+        </div>
+        </div>
+        <div class="pt-2">
+        <span class="inline-block px-2 py-1 rounded bg-surface-container text-on-surface-variant font-sans text-caption font-medium">Logotype &amp; Primary UI (60%)</span>
+        </div>
+        </div>
+        </div>
+        <!-- 2. Orbit Orange / Solar Coral -->
+        <div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col group">
+        <button class="w-full h-36 relative" style="background:#a63b00" p-space-md flex flex-col justify-between text-left group-hover:opacity-95 transition-opacity" onclick="copyToClipboard('#F48A56', 'Solar Coral HEX')">
+        <div class="flex items-center justify-between">
+        <span class="px-2 py-0.5 rounded-full bg-[#ffffff]/20 backdrop-blur-sm text-[#ffffff] font-caption text-caption tracking-wider uppercase">Solar Accent</span>
+        <span class="material-symbols-outlined text-[#ffffff] opacity-0 group-hover:opacity-100 transition-opacity text-[18px]">content_copy</span>
+        </div>
+        <div class="text-[#ffffff]">
+        <div class="font-headline-sm text-headline-sm font-bold">Solar Coral</div>
+        <div class="font-caption text-caption opacity-80 uppercase tracking-widest">Orbit Crest</div>
+        </div>
+        </button>
+        <div class="p-space-md flex flex-col gap-2 font-mono text-body-sm flex-1 justify-between">
+        <div class="space-y-1.5">
+        <div class="flex items-center justify-between">
+        <span class="text-on-surface-variant font-sans font-label-sm text-label-sm">HEX</span>
+        <span class="font-semibold text-secondary">#F48A56</span>
+        </div>
+        <div class="flex items-center justify-between">
+        <span class="text-on-surface-variant font-sans font-label-sm text-label-sm">RGB</span>
+        <span class="text-on-surface">244, 138, 86</span>
+        </div>
+        <div class="flex items-center justify-between">
+        <span class="text-on-surface-variant font-sans font-label-sm text-label-sm">CMYK</span>
+        <span class="text-on-surface">0, 53, 68, 0</span>
+        </div>
+        <div class="flex items-center justify-between">
+        <span class="text-on-surface-variant font-sans font-label-sm text-label-sm">Pantone</span>
+        <span class="text-on-surface">1575 C</span>
+        </div>
+        </div>
+        <div class="pt-2">
+        <span class="inline-block px-2 py-1 rounded bg-secondary-fixed text-on-secondary-fixed font-sans text-caption font-medium">Conversion CTAs &amp; Badges (20%)</span>
+        </div>
+        </div>
+        </div>
+        <!-- 3. Digital Sky / Cyan Flare -->
+        <div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col group">
+        <button class="w-full h-36 relative" style="background:#027cb0" p-space-md flex flex-col justify-between text-left group-hover:opacity-95 transition-opacity" onclick="copyToClipboard('#4EA8DE', 'Digital Sky HEX')">
+        <div class="flex items-center justify-between">
+        <span class="px-2 py-0.5 rounded-full bg-[#fcfcff]/20 backdrop-blur-sm text-[#fcfcff] font-caption text-caption tracking-wider uppercase">Motion Glow</span>
+        <span class="material-symbols-outlined text-[#fcfcff] opacity-0 group-hover:opacity-100 transition-opacity text-[18px]">content_copy</span>
+        </div>
+        <div class="text-[#fcfcff]">
+        <div class="font-headline-sm text-headline-sm font-bold">Digital Sky</div>
+        <div class="font-caption text-caption opacity-80 uppercase tracking-widest">Atmospheric Flare</div>
+        </div>
+        </button>
+        <div class="p-space-md flex flex-col gap-2 font-mono text-body-sm flex-1 justify-between">
+        <div class="space-y-1.5">
+        <div class="flex items-center justify-between">
+        <span class="text-on-surface-variant font-sans font-label-sm text-label-sm">HEX</span>
+        <span class="font-semibold text-tertiary">#4EA8DE</span>
+        </div>
+        <div class="flex items-center justify-between">
+        <span class="text-on-surface-variant font-sans font-label-sm text-label-sm">RGB</span>
+        <span class="text-on-surface">78, 168, 222</span>
+        </div>
+        <div class="flex items-center justify-between">
+        <span class="text-on-surface-variant font-sans font-label-sm text-label-sm">CMYK</span>
+        <span class="text-on-surface">65, 20, 0, 0</span>
+        </div>
+        <div class="flex items-center justify-between">
+        <span class="text-on-surface-variant font-sans font-label-sm text-label-sm">Pantone</span>
+        <span class="text-on-surface">2915 C</span>
+        </div>
+        </div>
+        <div class="pt-2">
+        <span class="inline-block px-2 py-1 rounded bg-tertiary-fixed text-on-tertiary-fixed font-sans text-caption font-medium">Trajectory &amp; Glows (10%)</span>
+        </div>
+        </div>
+        </div>
+        <!-- 4. Slate Dark / Institutional Ink -->
+        <div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col group">
+        <button class="w-full h-36 relative" style="background:#283044" p-space-md flex flex-col justify-between text-left group-hover:opacity-95 transition-opacity" onclick="copyToClipboard('#0F172A', 'Slate Dark HEX')">
+        <div class="flex items-center justify-between">
+        <span class="px-2 py-0.5 rounded-full bg-[#eef0ff]/20 backdrop-blur-sm text-[#eef0ff] font-caption text-caption tracking-wider uppercase">Neutral Anchor</span>
+        <span class="material-symbols-outlined text-[#eef0ff] opacity-0 group-hover:opacity-100 transition-opacity text-[18px]">content_copy</span>
+        </div>
+        <div class="text-[#eef0ff]">
+        <div class="font-headline-sm text-headline-sm font-bold">Deep Slate</div>
+        <div class="font-caption text-caption opacity-80 uppercase tracking-widest">Typographic Text</div>
+        </div>
+        </button>
+        <div class="p-space-md flex flex-col gap-2 font-mono text-body-sm flex-1 justify-between">
+        <div class="space-y-1.5">
+        <div class="flex items-center justify-between">
+        <span class="text-on-surface-variant font-sans font-label-sm text-label-sm">HEX</span>
+        <span class="font-semibold text-inverse-surface">#0F172A</span>
+        </div>
+        <div class="flex items-center justify-between">
+        <span class="text-on-surface-variant font-sans font-label-sm text-label-sm">RGB</span>
+        <span class="text-on-surface">15, 23, 42</span>
+        </div>
+        <div class="flex items-center justify-between">
+        <span class="text-on-surface-variant font-sans font-label-sm text-label-sm">CMYK</span>
+        <span class="text-on-surface">64, 45, 0, 84</span>
+        </div>
+        <div class="flex items-center justify-between">
+        <span class="text-on-surface-variant font-sans font-label-sm text-label-sm">Pantone</span>
+        <span class="text-on-surface">433 C</span>
+        </div>
+        </div>
+        <div class="pt-2">
+        <span class="inline-block px-2 py-1 rounded bg-surface-container text-on-surface-variant font-sans text-caption font-medium">Headlines &amp; Body Text</span>
+        </div>
+        </div>
+        </div>
+        <!-- 5. Canvas Pure White & Surface -->
+        <div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col group">
+        <button class="w-full h-36 relative" style="background:#eaedff" p-space-md flex flex-col justify-between text-left group-hover:opacity-95 transition-opacity" onclick="copyToClipboard('#FAF8FF', 'Surface Canvas HEX')">
+        <div class="flex items-center justify-between">
+        <span class="px-2 py-0.5 rounded-full bg-[#131b2e]/10 backdrop-blur-sm text-[#131b2e] font-caption text-caption tracking-wider uppercase">Substrate</span>
+        <span class="material-symbols-outlined text-[#131b2e] opacity-0 group-hover:opacity-100 transition-opacity text-[18px]">content_copy</span>
+        </div>
+        <div class="text-[#131b2e]">
+        <div class="font-headline-sm text-headline-sm font-bold">Pure White / Pure Surface</div>
+        <div class="font-caption text-caption opacity-80 uppercase tracking-widest">Base Canvas</div>
+        </div>
+        </button>
+        <div class="p-space-md flex flex-col gap-2 font-mono text-body-sm flex-1 justify-between">
+        <div class="space-y-1.5">
+        <div class="flex items-center justify-between">
+        <span class="text-on-surface-variant font-sans font-label-sm text-label-sm">HEX Canvas</span>
+        <span class="font-semibold text-on-surface">#FAF8FF</span>
+        </div>
+        <div class="flex items-center justify-between">
+        <span class="text-on-surface-variant font-sans font-label-sm text-label-sm">HEX Card</span>
+        <span class="text-on-surface">#FFFFFF</span>
+        </div>
+        <div class="flex items-center justify-between">
+        <span class="text-on-surface-variant font-sans font-label-sm text-label-sm">RGB</span>
+        <span class="text-on-surface">250, 248, 255</span>
+        </div>
+        <div class="flex items-center justify-between">
+        <span class="text-on-surface-variant font-sans font-label-sm text-label-sm">Opacity</span>
+        <span class="text-on-surface">100% Solid</span>
+        </div>
+        </div>
+        <div class="pt-2">
+        <span class="inline-block px-2 py-1 rounded bg-surface-container text-on-surface-variant font-sans text-caption font-medium">Whitespace &amp; Structural Depth</span>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <!-- Gradient Systems & Spectral Ratios Interactive Section -->
+        <div class="max-w-7xl mx-auto px-gutter pb-space-xl w-full">
+        <div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm mb-space-lg">
+        <div>
+        <span class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-semibold">03 / Dynamic Transitions</span>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Gradient Systems &amp; Directional Trajectories</h2>
+        </div>
+        <div class="flex items-center gap-space-xs">
+        <span class="font-caption text-caption text-on-surface-variant">Active Render:</span>
+        <span class="px-2.5 py-1 rounded-md bg-surface-container text-primary font-label-sm text-label-sm font-semibold">Linear 135deg</span>
+        </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-space-lg">
+        <!-- Fundaserinco Orbit Gradient -->
+        <div class="bg-surface-container-low rounded-xl p-space-lg flex flex-col justify-between">
+        <div>
+        <div class="flex items-center justify-between mb-space-sm">
+        <div class="flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-primary"></span>
+        <span class="font-label-md text-label-md text-on-surface font-semibold">Orbit Trajectory Gradient</span>
+        </div>
+        <span class="font-caption text-caption text-outline font-mono">135 DEGREE ROTATION</span>
+        </div>
+        <!-- Gradient Live Bar -->
+        <div class="w-full h-24 rounded-xl shadow-md p-space-md flex flex-col justify-between text-on-primary relative overflow-hidden" style="background: linear-gradient(135deg, #0086C8 0%, #4EA8DE 100%);">
+        <div class="flex items-center justify-between text-caption font-mono uppercase tracking-wider">
+        <span class="">Start #0086C8</span>
+        <span class="">End #4EA8DE</span>
+        </div>
+        <div class="font-headline-sm text-headline-sm font-bold tracking-tight">Fundaserinco Orbit Sweep</div>
+        </div>
+        <!-- CSS Code Snippet -->
+        <div class="mt-space-md bg-[#0b101c] rounded-lg p-space-md flex items-center justify-between text-[#e2e7ff] font-mono text-body-sm">
+        <code class="truncate text-[#91cdff]">background: linear-gradient(135deg, #0086C8 0%, #4EA8DE 100%);</code>
+        <button class="ml-2 text-on-surface-variant hover:text-inverse-on-surface transition-colors p-1" onclick="copyToClipboard('background: linear-gradient(135deg, #0086C8 0%, #4EA8DE 100%);', 'Orbit Gradient CSS')" title="Copy code">
+        <span class="material-symbols-outlined text-[18px]">content_copy</span>
+        </button>
+        </div>
+        </div>
+        <div class="mt-space-md flex items-center justify-between font-caption text-caption text-on-surface-variant">
+        <span class="">Primary hero backgrounds, dynamic charts, brand orbital curves</span>
+        <span class="font-mono text-primary">Blend: Normal / Screen</span>
+        </div>
+        </div>
+        <!-- Solar Energy Gradient -->
+        <div class="bg-surface-container-low rounded-xl p-space-lg flex flex-col justify-between">
+        <div>
+        <div class="flex items-center justify-between mb-space-sm">
+        <div class="flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-secondary"></span>
+        <span class="font-label-md text-label-md text-on-surface font-semibold">Solar Kinetic Energy Gradient</span>
+        </div>
+        <span class="font-caption text-caption text-outline font-mono">90 DEGREE HORIZONTAL</span>
+        </div>
+        <!-- Gradient Live Bar -->
+        <div class="w-full h-24 rounded-xl shadow-md p-space-md flex flex-col justify-between text-on-secondary relative overflow-hidden" style="background: linear-gradient(90deg, #F48A56 0%, #F97316 100%);">
+        <div class="flex items-center justify-between text-caption font-mono uppercase tracking-wider">
+        <span class="">Start #F48A56</span>
+        <span class="">End #F97316</span>
+        </div>
+        <div class="font-headline-sm text-headline-sm font-bold tracking-tight">Solar Kinetic Boost</div>
+        </div>
+        <!-- CSS Code Snippet -->
+        <div class="mt-space-md bg-[#0b101c] rounded-lg p-space-md flex items-center justify-between text-[#e2e7ff] font-mono text-body-sm">
+        <code class="truncate text-[#ffb598]">background: linear-gradient(90deg, #F48A56 0%, #F97316 100%);</code>
+        <button class="ml-2 text-on-surface-variant hover:text-inverse-on-surface transition-colors p-1" onclick="copyToClipboard('background: linear-gradient(90deg, #F48A56 0%, #F97316 100%);', 'Solar Gradient CSS')" title="Copy code">
+        <span class="material-symbols-outlined text-[18px]">content_copy</span>
+        </button>
+        </div>
+        </div>
+        <div class="mt-space-md flex items-center justify-between font-caption text-caption text-on-surface-variant">
+        <span class="">Critical interactive endpoints, notification pings, conversion states</span>
+        <span class="font-mono text-secondary">Blend: Normal / Multiply</span>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <!-- Accessibility & WCAG 2.1 Contrast Matrix -->
+        <div class="max-w-7xl mx-auto px-gutter pb-space-xl w-full">
+        <div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm mb-space-lg">
+        <div>
+        <span class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-semibold">04 / Rigorous Accessibility</span>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">WCAG 2.1 Contrast &amp; Legibility Matrix</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant">Ensuring optical compliance across enterprise dashboard views and mission-critical workflows.</p>
+        </div>
+        <div class="flex items-center gap-space-xs">
+        <span class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm">
+        <span class="w-2 h-2 rounded-full bg-primary"></span> AA Compliance: ≥ 4.5:1
+                  </span>
+        <span class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm">
+        <span class="w-2 h-2 rounded-full bg-secondary"></span> AAA Compliance: ≥ 7.0:1
+                  </span>
+        </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+        <!-- Matrix 1: Tech Blue on White -->
+        <div class="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between">
+        <div>
+        <div class="flex items-center justify-between mb-space-sm">
+        <span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-caption text-caption font-semibold">PASS AA</span>
+        <span class="font-caption text-caption font-mono text-primary font-bold">4.62 : 1</span>
+        </div>
+        <div class="w-full h-24 rounded-lg bg-white flex items-center justify-center p-space-sm shadow-sm mb-space-sm">
+        <span class="font-headline-sm text-headline-sm text-[#0086c8] font-bold">Tech Blue Text</span>
+        </div>
+        <span class="font-label-sm text-label-sm text-on-surface">#0086C8 on #FFFFFF</span>
+        <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Meets AA for standard 16px body copy and AA/AAA for 18pt+ headlines.</p>
+        </div>
+        <div class="pt-space-sm flex items-center justify-between font-caption text-caption text-outline">
+        <span class="">Normal Text: AA</span>
+        <span class="">Large Text: AAA</span>
+        </div>
+        </div>
+        <!-- Matrix 2: Deep Slate on White -->
+        <div class="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between">
+        <div>
+        <div class="flex items-center justify-between mb-space-sm">
+        <span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-caption text-caption font-semibold">PASS AAA</span>
+        <span class="font-caption text-caption font-mono text-on-surface font-bold">14.28 : 1</span>
+        </div>
+        <div class="w-full h-24 rounded-lg bg-white flex items-center justify-center p-space-sm shadow-sm mb-space-sm">
+        <span class="font-headline-sm text-headline-sm text-[#0f172a] font-bold">Slate Typography</span>
+        </div>
+        <span class="font-label-sm text-label-sm text-on-surface">#0F172A on #FFFFFF</span>
+        <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Exceptional clarity. The primary token for long-form reading and critical data arrays.</p>
+        </div>
+        <div class="pt-space-sm flex items-center justify-between font-caption text-caption text-outline">
+        <span class="">Normal Text: AAA</span>
+        <span class="">Large Text: AAA</span>
+        </div>
+        </div>
+        <!-- Matrix 3: White on Tech Blue -->
+        <div class="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between">
+        <div>
+        <div class="flex items-center justify-between mb-space-sm">
+        <span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-caption text-caption font-semibold">PASS AA</span>
+        <span class="font-caption text-caption font-mono text-primary font-bold">4.62 : 1</span>
+        </div>
+        <div class="w-full h-24 rounded-lg bg-[#0086c8] flex items-center justify-center p-space-sm shadow-sm mb-space-sm">
+        <span class="font-headline-sm text-headline-sm text-white font-bold">White Button</span>
+        </div>
+        <span class="font-label-sm text-label-sm text-on-surface">#FFFFFF on #0086C8</span>
+        <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Standard for solid buttons and key navigation tags. Crisp inverted legibility.</p>
+        </div>
+        <div class="pt-space-sm flex items-center justify-between font-caption text-caption text-outline">
+        <span class="">Normal Text: AA</span>
+        <span class="">Large Text: AAA</span>
+        </div>
+        </div>
+        <!-- Matrix 4: Dark Slate on Solar Coral -->
+        <div class="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between">
+        <div>
+        <div class="flex items-center justify-between mb-space-sm">
+        <span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-caption text-caption font-semibold">PASS AA (5.8:1)</span>
+        <span class="font-caption text-caption font-mono text-secondary font-bold">5.81 : 1</span>
+        </div>
+        <div class="w-full h-24 rounded-lg bg-[#f48a56] flex items-center justify-center p-space-sm shadow-sm mb-space-sm">
+        <span class="font-headline-sm text-headline-sm text-[#0f172a] font-bold">Deep Slate Badge</span>
+        </div>
+        <span class="font-label-sm text-label-sm text-on-surface">#0F172A on #F48A56</span>
+        <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Prescribed pairing for callout badges where white text falls below AA thresholds.</p>
+        </div>
+        <div class="pt-space-sm flex items-center justify-between font-caption text-caption text-outline">
+        <span class="">Normal Text: AA</span>
+        <span class="">Large Text: AAA</span>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <!-- Tonal Shades Palette (50 to 950 Design Token Ramps) -->
+        <div class="max-w-7xl mx-auto px-gutter pb-space-xl w-full">
+        <div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm mb-space-lg">
+        <div>
+        <span class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-semibold">05 / Systematic Tonal Ramps</span>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Full Spectral Tonal Scale (50 - 950)</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant">Mathematically stepped luminosity steps for component state mapping, hover halos, and dark interfaces.</p>
+        </div>
+        <div class="flex items-center gap-space-xs font-caption text-caption text-outline">
+        <span class="material-symbols-outlined text-[16px]">tune</span>
+        <span class="">LCH Perceptual Interpolation</span>
+        </div>
+        </div>
+        <!-- Tech Blue Ramp -->
+        <div class="mb-space-lg">
+        <div class="flex items-center justify-between mb-2">
+        <span class="font-label-md text-label-md text-on-surface font-semibold">fundaserinco-blue</span>
+        <span class="font-caption text-caption text-on-surface-variant font-mono">BASE #0086C8 (500)</span>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-5 md:grid-cols-10 gap-1.5 rounded-xl overflow-hidden">
+        <button class="h-20 p-2 flex flex-col justify-between text-left transition-transform hover:scale-105 rounded-lg" onclick="copyToClipboard('#EFF8FF', 'Blue 50')" style="background-color: #EFF8FF;">
+        <span class="font-mono text-caption text-on-surface">50</span>
+        <span class="font-mono text-caption text-on-surface-variant">#EFF8FF</span>
+        </button>
+        <button class="h-20 p-2 flex flex-col justify-between text-left transition-transform hover:scale-105 rounded-lg" onclick="copyToClipboard('#DBEAFE', 'Blue 100')" style="background-color: #DBEAFE;">
+        <span class="font-mono text-caption text-on-surface">100</span>
+        <span class="font-mono text-caption text-on-surface-variant">#DBEAFE</span>
+        </button>
+        <button class="h-20 p-2 flex flex-col justify-between text-left transition-transform hover:scale-105 rounded-lg" onclick="copyToClipboard('#BFDBFE', 'Blue 200')" style="background-color: #BFDBFE;">
+        <span class="font-mono text-caption text-on-surface">200</span>
+        <span class="font-mono text-caption text-on-surface-variant">#BFDBFE</span>
+        </button>
+        <button class="h-20 p-2 flex flex-col justify-between text-left transition-transform hover:scale-105 rounded-lg" onclick="copyToClipboard('#93C5FD', 'Blue 300')" style="background-color: #93C5FD;">
+        <span class="font-mono text-caption text-on-surface">300</span>
+        <span class="font-mono text-caption text-on-surface">#93C5FD</span>
+        </button>
+        <button class="h-20 p-2 flex flex-col justify-between text-left transition-transform hover:scale-105 rounded-lg" onclick="copyToClipboard('#4EA8DE', 'Blue 400')" style="background-color: #4EA8DE;">
+        <span class="font-mono text-caption text-on-primary">400</span>
+        <span class="font-mono text-caption text-on-primary">#4EA8DE</span>
+        </button>
+        <button class="h-20 p-2 flex flex-col justify-between text-left transition-transform hover:scale-105 rounded-lg relative ring-2 ring-primary ring-offset-2" onclick="copyToClipboard('#0086C8', 'Blue 500')" style="background-color: #0086C8;">
+        <span class="font-mono text-caption text-on-primary font-bold">500 *</span>
+        <span class="font-mono text-caption text-on-primary font-bold">#0086C8</span>
+        </button>
+        <button class="h-20 p-2 flex flex-col justify-between text-left transition-transform hover:scale-105 rounded-lg" onclick="copyToClipboard('#0072B2', 'Blue 600')" style="background-color: #0072B2;">
+        <span class="font-mono text-caption text-on-primary">600</span>
+        <span class="font-mono text-caption text-on-primary">#0072B2</span>
+        </button>
+        <button class="h-20 p-2 flex flex-col justify-between text-left transition-transform hover:scale-105 rounded-lg" onclick="copyToClipboard('#005F9E', 'Blue 700')" style="background-color: #005F9E;">
+        <span class="font-mono text-caption text-on-primary">700</span>
+        <span class="font-mono text-caption text-on-primary">#005F9E</span>
+        </button>
+        <button class="h-20 p-2 flex flex-col justify-between text-left transition-transform hover:scale-105 rounded-lg" onclick="copyToClipboard('#004C82', 'Blue 800')" style="background-color: #004C82;">
+        <span class="font-mono text-caption text-on-primary">800</span>
+        <span class="font-mono text-caption text-on-primary">#004C82</span>
+        </button>
+        <button class="h-20 p-2 flex flex-col justify-between text-left transition-transform hover:scale-105 rounded-lg" onclick="copyToClipboard('#003154', 'Blue 900')" style="background-color: #003154;">
+        <span class="font-mono text-caption text-on-primary">900</span>
+        <span class="font-mono text-caption text-on-primary">#003154</span>
+        </button>
+        </div>
+        </div>
+        <!-- Solar Coral Ramp -->
+        <div>
+        <div class="flex items-center justify-between mb-2">
+        <span class="font-label-md text-label-md text-on-surface font-semibold">fundaserinco-coral</span>
+        <span class="font-caption text-caption text-on-surface-variant font-mono">BASE #F48A56 (500)</span>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-5 md:grid-cols-10 gap-1.5 rounded-xl overflow-hidden">
+        <button class="h-20 p-2 flex flex-col justify-between text-left transition-transform hover:scale-105 rounded-lg" onclick="copyToClipboard('#FFF7ED', 'Coral 50')" style="background-color: #FFF7ED;">
+        <span class="font-mono text-caption text-on-surface">50</span>
+        <span class="font-mono text-caption text-on-surface-variant">#FFF7ED</span>
+        </button>
+        <button class="h-20 p-2 flex flex-col justify-between text-left transition-transform hover:scale-105 rounded-lg" onclick="copyToClipboard('#FFEDD5', 'Coral 100')" style="background-color: #FFEDD5;">
+        <span class="font-mono text-caption text-on-surface">100</span>
+        <span class="font-mono text-caption text-on-surface-variant">#FFEDD5</span>
+        </button>
+        <button class="h-20 p-2 flex flex-col justify-between text-left transition-transform hover:scale-105 rounded-lg" onclick="copyToClipboard('#FED7AA', 'Coral 200')" style="background-color: #FED7AA;">
+        <span class="font-mono text-caption text-on-surface">200</span>
+        <span class="font-mono text-caption text-on-surface">#FED7AA</span>
+        </button>
+        <button class="h-20 p-2 flex flex-col justify-between text-left transition-transform hover:scale-105 rounded-lg" onclick="copyToClipboard('#FDBA74', 'Coral 300')" style="background-color: #FDBA74;">
+        <span class="font-mono text-caption text-on-surface">300</span>
+        <span class="font-mono text-caption text-on-surface">#FDBA74</span>
+        </button>
+        <button class="h-20 p-2 flex flex-col justify-between text-left transition-transform hover:scale-105 rounded-lg" onclick="copyToClipboard('#FB923C', 'Coral 400')" style="background-color: #FB923C;">
+        <span class="font-mono text-caption text-on-surface">400</span>
+        <span class="font-mono text-caption text-on-surface">#FB923C</span>
+        </button>
+        <button class="h-20 p-2 flex flex-col justify-between text-left transition-transform hover:scale-105 rounded-lg relative ring-2 ring-secondary ring-offset-2" onclick="copyToClipboard('#F48A56', 'Coral 500')" style="background-color: #F48A56;">
+        <span class="font-mono text-caption text-on-secondary font-bold">500 *</span>
+        <span class="font-mono text-caption text-on-secondary font-bold">#F48A56</span>
+        </button>
+        <button class="h-20 p-2 flex flex-col justify-between text-left transition-transform hover:scale-105 rounded-lg" onclick="copyToClipboard('#EA580C', 'Coral 600')" style="background-color: #EA580C;">
+        <span class="font-mono text-caption text-on-secondary">600</span>
+        <span class="font-mono text-caption text-on-secondary">#EA580C</span>
+        </button>
+        <button class="h-20 p-2 flex flex-col justify-between text-left transition-transform hover:scale-105 rounded-lg" onclick="copyToClipboard('#C2410C', 'Coral 700')" style="background-color: #C2410C;">
+        <span class="font-mono text-caption text-on-secondary">700</span>
+        <span class="font-mono text-caption text-on-secondary">#C2410C</span>
+        </button>
+        <button class="h-20 p-2 flex flex-col justify-between text-left transition-transform hover:scale-105 rounded-lg" onclick="copyToClipboard('#9A3412', 'Coral 800')" style="background-color: #9A3412;">
+        <span class="font-mono text-caption text-on-secondary">800</span>
+        <span class="font-mono text-caption text-on-secondary">#9A3412</span>
+        </button>
+        <button class="h-20 p-2 flex flex-col justify-between text-left transition-transform hover:scale-105 rounded-lg" onclick="copyToClipboard('#7C2D12', 'Coral 900')" style="background-color: #7C2D12;">
+        <span class="font-mono text-caption text-on-secondary">900</span>
+        <span class="font-mono text-caption text-on-secondary">#7C2D12</span>
+        </button>
+        </div>
+        </div>
+        </div>
+        </div>
+        <!-- Interactive Export & Token Hub -->
+        <div class="max-w-7xl mx-auto px-gutter pb-space-xl w-full">
+        <div class="bg-surface-container-low rounded-xl p-space-xl flex flex-col lg:flex-row items-center justify-between gap-space-lg">
+        <div class="flex items-center gap-space-md">
+        <div class="w-14 h-14 rounded-xl bg-primary flex items-center justify-center text-on-primary shrink-0 shadow-md">
+        <span class="material-symbols-outlined text-[32px]">palette</span>
+        </div>
+        <div>
+        <h3 class="font-headline-sm text-headline-sm text-on-surface">Synchronize with Figma &amp; Production Code</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant">All color tokens comply with W3C Design Token Community Group (DTCG) formats.</p>
+        </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-space-sm w-full lg:w-auto">
+        <button class="flex-1 lg:flex-none px-space-md py-3 rounded-lg bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors text-center shadow-sm" onclick="copyTokens('css')">
+                  Copy CSS :root
+                </button>
+        <button class="flex-1 lg:flex-none px-space-md py-3 rounded-lg bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors text-center shadow-sm" onclick="copyTokens('tailwind')">
+                  Copy Tailwind.js
+                </button>
+        </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⬇️ SECCIÓN 3: TYPOGRAPHY &amp; COMPONENTS (contenido de "code (8).html"; incluye el anchor #ui-components) -->
+    <section data-page="typography-and-scale" class="hidden">
+      <div class="flex flex-col w-full">
+        <div class="w-full relative overflow-hidden bg-gradient-to-b from-surface-container-high/40 via-surface to-surface pb-space-xl">
+        <div class="absolute -top-32 right-[-5%] w-[480px] h-[480px] rounded-full bg-primary-fixed/25 blur-3xl pointer-events-none"></div>
+        <div class="absolute top-48 -left-20 w-[360px] h-[360px] rounded-full bg-secondary-fixed/20 blur-3xl pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-gutter pt-space-lg">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md mb-space-xl">
+        <div class="space-y-space-xs max-w-3xl">
+        <div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-highest text-primary font-label-sm text-label-sm">
+        <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                    Design System Module • Section 03 • Type &amp; Component Anatomy
+                  </div>
+        <h1 class="font-display-lg text-display-lg text-on-surface tracking-tight">
+                    Typography, Scales &amp; <span class="text-primary">Component Specs</span>
+        </h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant">
+                    Technical specimen guidelines, orbital font scales, and certified UI component specifications crafted for Fundaserinco's digital infrastructure.
+                  </p>
+        </div>
+        <div class="flex flex-wrap items-center gap-space-sm">
+        <button class="px-space-md py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md shadow-sm transition-all hover:bg-primary-container" id="specFilterAll">
+                    All Specs
+                  </button>
+        <a class="px-space-md py-2 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all shadow-sm" href="#typography-specimen">
+                    Type System
+                  </a>
+        <a class="px-space-md py-2 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all shadow-sm" href="#ui-components">
+                    Components
+                  </a>
+        <a class="px-space-md py-2 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all shadow-sm" href="#stationery-mockups">
+                    Stationery
+                  </a>
+        </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-space-md mb-space-xl">
+        <div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+        <div class="flex items-center justify-between text-on-surface-variant mb-space-sm">
+        <span class="font-label-sm text-label-sm uppercase tracking-wider">Type Family</span>
+        <span class="material-symbols-outlined text-primary text-[20px]">font_download</span>
+        </div>
+        <div>
+        <div class="font-headline-md text-headline-md text-on-surface font-bold">Plus Jakarta Sans</div>
+        <div class="font-caption text-caption text-on-surface-variant mt-1">Fallback: Outfit, Montserrat</div>
+        </div>
+        <div class="mt-space-sm pt-space-xs text-primary font-label-sm text-label-sm flex items-center gap-1">
+        <span class="">6 Modular Weights</span>
+        <span class="material-symbols-outlined text-[16px]">check_circle</span>
+        </div>
+        </div>
+        <div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+        <div class="flex items-center justify-between text-on-surface-variant mb-space-sm">
+        <span class="font-label-sm text-label-sm uppercase tracking-wider">Modular Ratio</span>
+        <span class="material-symbols-outlined text-secondary text-[20px]">aspect_ratio</span>
+        </div>
+        <div>
+        <div class="font-headline-md text-headline-md text-on-surface font-bold">1.250 • Major Third</div>
+        <div class="font-caption text-caption text-on-surface-variant mt-1">8pt baseline grid locked</div>
+        </div>
+        <div class="mt-space-sm pt-space-xs text-secondary font-label-sm text-label-sm flex items-center gap-1">
+        <span class="">Fluid Desktop &amp; Mobile</span>
+        <span class="material-symbols-outlined text-[16px]">tune</span>
+        </div>
+        </div>
+        <div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+        <div class="flex items-center justify-between text-on-surface-variant mb-space-sm">
+        <span class="font-label-sm text-label-sm uppercase tracking-wider">Brand Synergy</span>
+        <span class="material-symbols-outlined text-tertiary text-[20px]">hub</span>
+        </div>
+        <div>
+        <div class="font-headline-md text-headline-md text-on-surface font-bold">Orbit &amp; Data Pixels</div>
+        <div class="font-caption text-caption text-on-surface-variant mt-1">Curvature: 8px to 16px geometry</div>
+        </div>
+        <div class="mt-space-sm pt-space-xs text-tertiary font-label-sm text-label-sm flex items-center gap-1">
+        <span class="">Vector Match Certified</span>
+        <span class="material-symbols-outlined text-[16px]">verified</span>
+        </div>
+        </div>
+        <div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+        <div class="flex items-center justify-between text-on-surface-variant mb-space-sm">
+        <span class="font-label-sm text-label-sm uppercase tracking-wider">Ready Specs</span>
+        <span class="material-symbols-outlined text-primary text-[20px]">terminal</span>
+        </div>
+        <div>
+        <div class="font-headline-md text-headline-md text-on-surface font-bold">Token v1.0.4</div>
+        <div class="font-caption text-caption text-on-surface-variant mt-1">Figma + Tailwind CSS tokens</div>
+        </div>
+        <div class="mt-space-sm pt-space-xs text-primary font-label-sm text-label-sm flex items-center gap-1">
+        <span class="">WCAG AAA Compliant</span>
+        <span class="material-symbols-outlined text-[16px]">accessibility_new</span>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <section class="w-full max-w-7xl mx-auto px-gutter mb-space-xl" id="typography-specimen">
+        <div class="flex items-center justify-between mb-space-md">
+        <div>
+        <div class="flex items-center gap-2">
+        <span class="w-3 h-3 rounded bg-primary"></span>
+        <span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider">Section 01</span>
+        </div>
+        <h2 class="font-headline-xl text-headline-xl text-on-surface">Primary Brand Typography Specimen</h2>
+        </div>
+        <span class="font-label-sm text-label-sm text-on-surface-variant hidden sm:inline-block">Google Font • Geometric Neo-Grotesque</span>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+        <div class="lg:col-span-8 p-space-xl rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden">
+        <div class="absolute -right-12 -top-12 opacity-5 pointer-events-none select-none font-display-lg text-[220px] font-extrabold text-primary">
+                  Aa
+                </div>
+        <div class="space-y-space-md relative z-10">
+        <div class="flex flex-wrap items-center justify-between gap-space-sm">
+        <div>
+        <span class="px-space-xs py-0.5 rounded bg-primary-fixed text-primary font-label-sm text-label-sm uppercase">Official Brand Face</span>
+        <h3 class="font-headline-lg text-headline-lg text-on-surface mt-1">Plus Jakarta Sans</h3>
+        </div>
+        <div class="text-right">
+        <span class="font-label-sm text-label-sm text-on-surface-variant block">OpenType Features</span>
+        <span class="font-caption text-caption text-primary">kern, liga, calt, cv01, cv02</span>
+        </div>
+        </div>
+        <div class="p-space-lg rounded-lg bg-surface-container-low/60">
+        <div class="font-display-lg text-display-lg text-primary tracking-normal leading-none mb-space-xs font-bold">
+                      Aa Bb Cc Gg 123 &amp;
+                    </div>
+        <p class="font-headline-sm text-headline-sm text-on-surface tracking-tight">
+                      Institutional clarity through balanced aperture and distinct digital curvature.
+                    </p>
+        </div>
+        <div class="space-y-space-xs">
+        <span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider">Uppercase Alphabet</span>
+        <div class="p-space-sm rounded bg-surface font-body-lg text-body-lg text-on-surface tracking-wider">
+                      A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+                    </div>
+        </div>
+        <div class="space-y-space-xs">
+        <span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider">Lowercase Alphabet</span>
+        <div class="p-space-sm rounded bg-surface font-body-lg text-body-lg text-on-surface tracking-wider">
+                      a b c d e f g h i j k l m n o p q r s t u v w x y z
+                    </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+        <div class="space-y-space-xs">
+        <span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider">Numerics &amp; Currency</span>
+        <div class="p-space-sm rounded bg-surface font-body-lg text-body-lg text-on-surface tracking-wider">
+                        0 1 2 3 4 5 6 7 8 9 € $ £ ¥ %
+                      </div>
+        </div>
+        <div class="space-y-space-xs">
+        <span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider">Glyphs, Punctuations &amp; Symbols</span>
+        <div class="p-space-sm rounded bg-surface font-body-lg text-body-lg text-on-surface tracking-wider">
+                        ! @ # $ &amp; * ( ) _ + [ ] { } : ; “ ” ‘ ’ / \ • →
+                      </div>
+        </div>
+        </div>
+        </div>
+        <div class="mt-space-lg pt-space-md flex flex-wrap items-center justify-between gap-space-sm">
+        <div class="flex items-center gap-space-xs">
+        <span class="w-3 h-3 rounded-full bg-primary"></span>
+        <span class="font-label-sm text-label-sm text-on-surface-variant">Primary Interface</span>
+        <span class="w-3 h-3 rounded-full bg-secondary ml-3"></span>
+        <span class="font-label-sm text-label-sm text-on-surface-variant">Accent Calls</span>
+        </div>
+        <div class="font-caption text-caption text-on-surface-variant">
+                    Engineered for high readability across 10px through 72px rendering.
+                  </div>
+        </div>
+        </div>
+        <div class="lg:col-span-4 flex flex-col gap-space-sm">
+        <div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex-1">
+        <div class="flex items-center justify-between mb-space-sm">
+        <span class="font-label-md text-label-md text-on-surface font-bold">Font Anatomy Metrics</span>
+        <span class="material-symbols-outlined text-primary text-[18px]">straighten</span>
+        </div>
+        <div class="space-y-space-sm">
+        <div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+        <div>
+        <div class="font-label-sm text-label-sm text-on-surface font-semibold">X-Height Proportion</div>
+        <div class="font-caption text-caption text-on-surface-variant">72% of Cap-Height</div>
+        </div>
+        <span class="px-space-xs py-0.5 rounded bg-surface-container-highest font-caption text-caption text-primary">Ultra-Legible</span>
+        </div>
+        <div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+        <div>
+        <div class="font-label-sm text-label-sm text-on-surface font-semibold">Cap Height</div>
+        <div class="font-caption text-caption text-on-surface-variant">708 units / 1000 UPM</div>
+        </div>
+        <span class="px-space-xs py-0.5 rounded bg-surface-container-highest font-caption text-caption text-primary">Solid Anchor</span>
+        </div>
+        <div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+        <div>
+        <div class="font-label-sm text-label-sm text-on-surface font-semibold">Ascender / Descender</div>
+        <div class="font-caption text-caption text-on-surface-variant">+270 / -210 units</div>
+        </div>
+        <span class="px-space-xs py-0.5 rounded bg-surface-container-highest font-caption text-caption text-primary">Balanced Orbit</span>
+        </div>
+        <div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+        <div>
+        <div class="font-label-sm text-label-sm text-on-surface font-semibold">Terminal Styling</div>
+        <div class="font-caption text-caption text-on-surface-variant">Horizontal geometric cuts</div>
+        </div>
+        <span class="px-space-xs py-0.5 rounded bg-secondary-fixed font-caption text-caption text-secondary">Fundaserinco DNA</span>
+        </div>
+        </div>
+        </div>
+        <div class="p-space-lg rounded-xl bg-surface-container-high/50 shadow-sm">
+        <div class="font-label-md text-label-md text-on-surface font-bold mb-space-xs">Fallback Family Hierarchy</div>
+        <div class="space-y-1.5">
+        <div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface">
+        <span class="">1. Plus Jakarta Sans</span>
+        <span class="text-primary font-label-sm text-label-sm">Primary Brand</span>
+        </div>
+        <div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
+        <span class="">2. Outfit</span>
+        <span class="font-caption text-caption">First Secondary</span>
+        </div>
+        <div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
+        <span class="">3. Montserrat</span>
+        <span class="font-caption text-caption">Geometric Backup</span>
+        </div>
+        <div class="flex items-center justify-between text-body-sm font-body-sm text-outline">
+        <span class="">4. system-ui / sans-serif</span>
+        <span class="font-caption text-caption">Platform Fallback</span>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="mt-space-md grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-space-sm">
+        <div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between text-on-surface-variant mb-space-xs">
+        <span class="font-caption text-caption uppercase tracking-wider">Weight 300</span>
+        <span class="font-label-sm text-label-sm font-light text-primary">Light</span>
+        </div>
+        <div class="text-[32px] leading-tight font-light text-on-surface mb-space-xs">Aa</div>
+        <p class="font-caption text-caption text-on-surface-variant">
+                  Used exclusively for large atmospheric editorial captions, quotes, and watermarks.
+                </p>
+        </div>
+        <div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between text-on-surface-variant mb-space-xs">
+        <span class="font-caption text-caption uppercase tracking-wider">Weight 400</span>
+        <span class="font-label-sm text-label-sm font-normal text-primary">Regular</span>
+        </div>
+        <div class="text-[32px] leading-tight font-normal text-on-surface mb-space-xs">Aa</div>
+        <p class="font-caption text-caption text-on-surface-variant">
+                  Core workhorse for long-form institutional narratives, body paragraphs, and descriptors.
+                </p>
+        </div>
+        <div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between text-on-surface-variant mb-space-xs">
+        <span class="font-caption text-caption uppercase tracking-wider">Weight 500</span>
+        <span class="font-label-sm text-label-sm font-medium text-primary">Medium</span>
+        </div>
+        <div class="text-[32px] leading-tight font-medium text-on-surface mb-space-xs">Aa</div>
+        <p class="font-caption text-caption text-on-surface-variant">
+                  Subtle emphasis in lists, table cell headers, input hints, and secondary micro-labels.
+                </p>
+        </div>
+        <div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between text-on-surface-variant mb-space-xs">
+        <span class="font-caption text-caption uppercase tracking-wider">Weight 600</span>
+        <span class="font-label-sm text-label-sm font-semibold text-primary">SemiBold</span>
+        </div>
+        <div class="text-[32px] leading-tight font-semibold text-on-surface mb-space-xs">Aa</div>
+        <p class="font-caption text-caption text-on-surface-variant">
+                  Standard for interactive triggers, button states, card headings, and navigation anchors.
+                </p>
+        </div>
+        <div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between text-on-surface-variant mb-space-xs">
+        <span class="font-caption text-caption uppercase tracking-wider">Weight 700</span>
+        <span class="font-label-sm text-label-sm font-bold text-primary">Bold</span>
+        </div>
+        <div class="text-[32px] leading-tight font-bold text-on-surface mb-space-xs">Aa</div>
+        <p class="font-caption text-caption text-on-surface-variant">
+                  Section headlines, H1/H2 titles, KPI key figures, and corporate document headers.
+                </p>
+        </div>
+        <div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between text-on-surface-variant mb-space-xs">
+        <span class="font-caption text-caption uppercase tracking-wider">Weight 800</span>
+        <span class="font-label-sm text-label-sm font-extrabold text-secondary">ExtraBold</span>
+        </div>
+        <div class="text-[32px] leading-tight font-extrabold text-secondary mb-space-xs">Aa</div>
+        <p class="font-caption text-caption text-on-surface-variant">
+                  Brand impact hero lines, major statistical milestones, and promotional focal points.
+                </p>
+        </div>
+        </div>
+        </section>
+        <section class="w-full max-w-7xl mx-auto px-gutter mb-space-xl">
+        <div class="flex items-center justify-between mb-space-md">
+        <div>
+        <div class="flex items-center gap-2">
+        <span class="w-3 h-3 rounded bg-secondary"></span>
+        <span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider">Section 02</span>
+        </div>
+        <h2 class="font-headline-xl text-headline-xl text-on-surface">Fluid Typographic Scale &amp; Modular Hierarchy</h2>
+        </div>
+        <span class="font-label-sm text-label-sm text-on-surface-variant hidden sm:inline-block">Tested on 1920px • 1440px • 390px</span>
+        </div>
+        <div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm">
+        <div class="overflow-x-auto">
+        <table class="w-full text-left">
+        <thead>
+        <tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+        <th class="py-space-sm px-space-md rounded-l-lg">Level / Role</th>
+        <th class="py-space-sm px-space-md">Live Render Sample</th>
+        <th class="py-space-sm px-space-md">Size • Line-Height</th>
+        <th class="py-space-sm px-space-md">Letter Spacing</th>
+        <th class="py-space-sm px-space-md rounded-r-lg">Tailwind Utility</th>
+        </tr>
+        </thead>
+        <tbody class="divide-y-0 text-on-surface">
+        <tr class="hover:bg-surface-container-low/40 transition-colors">
+        <td class="py-space-md px-space-md align-middle">
+        <span class="font-label-md text-label-md font-bold text-primary block">Display / Hero</span>
+        <span class="font-caption text-caption text-on-surface-variant">Weight: 800 (ExtraBold)</span>
+        </td>
+        <td class="py-space-md px-space-md align-middle">
+        <div class="font-display-lg text-display-lg text-on-surface max-w-md truncate">
+                          Impulsando el Futuro Digital
+                        </div>
+        </td>
+        <td class="py-space-md px-space-md align-middle font-body-sm text-body-sm text-on-surface-variant">
+                        56px • 64px (1.14)
+                      </td>
+        <td class="py-space-md px-space-md align-middle font-body-sm text-body-sm text-on-surface-variant">
+                        -0.03em
+                      </td>
+        <td class="py-space-md px-space-md align-middle">
+        <code class="px-space-xs py-1 rounded bg-surface-container font-caption text-caption text-primary">font-display-lg text-display-lg</code>
+        </td>
+        </tr>
+        <tr class="hover:bg-surface-container-low/40 transition-colors">
+        <td class="py-space-md px-space-md align-middle">
+        <span class="font-label-md text-label-md font-bold text-on-surface block">Headline XL (H1)</span>
+        <span class="font-caption text-caption text-on-surface-variant">Weight: 700 (Bold)</span>
+        </td>
+        <td class="py-space-md px-space-md align-middle">
+        <div class="font-headline-xl text-headline-xl text-on-surface max-w-md truncate">
+                          Innovación y Solidez Institucional
+                        </div>
+        </td>
+        <td class="py-space-md px-space-md align-middle font-body-sm text-body-sm text-on-surface-variant">
+                        40px • 48px (1.20)
+                      </td>
+        <td class="py-space-md px-space-md align-middle font-body-sm text-body-sm text-on-surface-variant">
+                        -0.02em
+                      </td>
+        <td class="py-space-md px-space-md align-middle">
+        <code class="px-space-xs py-1 rounded bg-surface-container font-caption text-caption text-primary">font-headline-xl text-headline-xl</code>
+        </td>
+        </tr>
+        <tr class="hover:bg-surface-container-low/40 transition-colors">
+        <td class="py-space-md px-space-md align-middle">
+        <span class="font-label-md text-label-md font-bold text-on-surface block">Headline LG (H2)</span>
+        <span class="font-caption text-caption text-on-surface-variant">Weight: 700 (Bold)</span>
+        </td>
+        <td class="py-space-md px-space-md align-middle">
+        <div class="font-headline-lg text-headline-lg text-on-surface max-w-md truncate">
+                          Ecosistema de Servicios Tecnológicos
+                        </div>
+        </td>
+        <td class="py-space-md px-space-md align-middle font-body-sm text-body-sm text-on-surface-variant">
+                        32px • 40px (1.25)
+                      </td>
+        <td class="py-space-md px-space-md align-middle font-body-sm text-body-sm text-on-surface-variant">
+                        -0.02em
+                      </td>
+        <td class="py-space-md px-space-md align-middle">
+        <code class="px-space-xs py-1 rounded bg-surface-container font-caption text-caption text-primary">font-headline-lg text-headline-lg</code>
+        </td>
+        </tr>
+        <tr class="hover:bg-surface-container-low/40 transition-colors">
+        <td class="py-space-md px-space-md align-middle">
+        <span class="font-label-md text-label-md font-bold text-on-surface block">Headline MD (H3)</span>
+        <span class="font-caption text-caption text-on-surface-variant">Weight: 600 (SemiBold)</span>
+        </td>
+        <td class="py-space-md px-space-md align-middle">
+        <div class="font-headline-md text-headline-md text-on-surface max-w-md truncate">
+                          Parámetros de Integración Orbital
+                        </div>
+        </td>
+        <td class="py-space-md px-space-md align-middle font-body-sm text-body-sm text-on-surface-variant">
+                        24px • 32px (1.33)
+                      </td>
+        <td class="py-space-md px-space-md align-middle font-body-sm text-body-sm text-on-surface-variant">
+                        -0.01em
+                      </td>
+        <td class="py-space-md px-space-md align-middle">
+        <code class="px-space-xs py-1 rounded bg-surface-container font-caption text-caption text-primary">font-headline-md text-headline-md</code>
+        </td>
+        </tr>
+        <tr class="hover:bg-surface-container-low/40 transition-colors">
+        <td class="py-space-md px-space-md align-middle">
+        <span class="font-label-md text-label-md font-bold text-on-surface block">Body Large</span>
+        <span class="font-caption text-caption text-on-surface-variant">Weight: 400 (Regular)</span>
+        </td>
+        <td class="py-space-md px-space-md align-middle">
+        <p class="font-body-lg text-body-lg text-on-surface max-w-md">
+                          Garantizamos sincronía analítica y soporte escalable para operaciones globales.
+                        </p>
+        </td>
+        <td class="py-space-md px-space-md align-middle font-body-sm text-body-sm text-on-surface-variant">
+                        18px • 28px (1.55)
+                      </td>
+        <td class="py-space-md px-space-md align-middle font-body-sm text-body-sm text-on-surface-variant">
+                        0.00em
+                      </td>
+        <td class="py-space-md px-space-md align-middle">
+        <code class="px-space-xs py-1 rounded bg-surface-container font-caption text-caption text-primary">font-body-lg text-body-lg</code>
+        </td>
+        </tr>
+        <tr class="hover:bg-surface-container-low/40 transition-colors">
+        <td class="py-space-md px-space-md align-middle">
+        <span class="font-label-md text-label-md font-bold text-on-surface block">Body Medium</span>
+        <span class="font-caption text-caption text-on-surface-variant">Weight: 400 (Regular)</span>
+        </td>
+        <td class="py-space-md px-space-md align-middle">
+        <p class="font-body-md text-body-md text-on-surface max-w-md">
+                          Arquitectura robusta que protege la identidad institucional con precisión milimétrica.
+                        </p>
+        </td>
+        <td class="py-space-md px-space-md align-middle font-body-sm text-body-sm text-on-surface-variant">
+                        16px • 24px (1.50)
+                      </td>
+        <td class="py-space-md px-space-md align-middle font-body-sm text-body-sm text-on-surface-variant">
+                        0.00em
+                      </td>
+        <td class="py-space-md px-space-md align-middle">
+        <code class="px-space-xs py-1 rounded bg-surface-container font-caption text-caption text-primary">font-body-md text-body-md</code>
+        </td>
+        </tr>
+        <tr class="hover:bg-surface-container-low/40 transition-colors">
+        <td class="py-space-md px-space-md align-middle">
+        <span class="font-label-md text-label-md font-bold text-on-surface block">Label Medium</span>
+        <span class="font-caption text-caption text-on-surface-variant">Weight: 600 (SemiBold)</span>
+        </td>
+        <td class="py-space-md px-space-md align-middle">
+        <span class="font-label-md text-label-md text-primary">
+                          Manual de Identidad v1.0
+                        </span>
+        </td>
+        <td class="py-space-md px-space-md align-middle font-body-sm text-body-sm text-on-surface-variant">
+                        14px • 20px (1.42)
+                      </td>
+        <td class="py-space-md px-space-md align-middle font-body-sm text-body-sm text-on-surface-variant">
+                        +0.01em
+                      </td>
+        <td class="py-space-md px-space-md align-middle">
+        <code class="px-space-xs py-1 rounded bg-surface-container font-caption text-caption text-primary">font-label-md text-label-md</code>
+        </td>
+        </tr>
+        <tr class="hover:bg-surface-container-low/40 transition-colors">
+        <td class="py-space-md px-space-md align-middle">
+        <span class="font-label-md text-label-md font-bold text-on-surface block">Caption / Micro</span>
+        <span class="font-caption text-caption text-on-surface-variant">Weight: 500 (Medium)</span>
+        </td>
+        <td class="py-space-md px-space-md align-middle">
+        <span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider">
+                          REGISTRO TÉCNICO OFICIAL • FUNDASERINCO CORP
+                        </span>
+        </td>
+        <td class="py-space-md px-space-md align-middle font-body-sm text-body-sm text-on-surface-variant">
+                        11px • 14px (1.27)
+                      </td>
+        <td class="py-space-md px-space-md align-middle font-body-sm text-body-sm text-on-surface-variant">
+                        +0.04em
+                      </td>
+        <td class="py-space-md px-space-md align-middle">
+        <code class="px-space-xs py-1 rounded bg-surface-container font-caption text-caption text-primary">font-caption text-caption</code>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+        </div>
+        </div>
+        </section>
+        <section class="w-full max-w-7xl mx-auto px-gutter mb-space-xl" id="ui-components">
+        <div class="flex items-center justify-between mb-space-md">
+        <div>
+        <div class="flex items-center gap-2">
+        <span class="w-3 h-3 rounded bg-tertiary"></span>
+        <span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider">Section 03</span>
+        </div>
+        <h2 class="font-headline-xl text-headline-xl text-on-surface">Fundaserinco UI Component Library</h2>
+        </div>
+        <div class="hidden sm:flex items-center gap-space-xs">
+        <span class="px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface font-caption text-caption">8px Corner Radius</span>
+        <span class="px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface font-caption text-caption">Accessible AA+</span>
+        </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+        <div class="lg:col-span-6 p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+        <div>
+        <div class="flex items-center justify-between mb-space-md">
+        <div>
+        <h3 class="font-headline-sm text-headline-sm text-on-surface">Interactive Button Spectrum</h3>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">Tactile feedback, focus halos, and orbital branding cues.</p>
+        </div>
+        <span class="material-symbols-outlined text-primary text-[24px]">smart_button</span>
+        </div>
+        <div class="space-y-space-md">
+        <div>
+        <span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider block mb-space-xs">Primary Actions (Electric Blue #0086C8)</span>
+        <div class="flex flex-wrap items-center gap-space-sm">
+        <button class="px-space-lg py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md shadow-sm transition-all hover:bg-primary-container hover:shadow-md flex items-center gap-2" type="button">
+        <span class="material-symbols-outlined text-[18px]">verified</span>
+        <span class="">Confirmar Acción</span>
+        </button>
+        <button class="px-space-md py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md opacity-75 cursor-not-allowed flex items-center gap-2" type="button">
+        <span class="material-symbols-outlined text-[18px] animate-spin">refresh</span>
+        <span class="">Procesando...</span>
+        </button>
+        </div>
+        </div>
+        <div>
+        <span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider block mb-space-xs">Accent Actions (Kinetic Coral #F27036 / Secondary)</span>
+        <div class="flex flex-wrap items-center gap-space-sm">
+        <button class="px-space-lg py-2.5 rounded-lg bg-secondary text-on-secondary font-label-md text-label-md shadow-sm transition-all hover:bg-on-secondary-container hover:shadow-md flex items-center gap-2" type="button">
+        <span class="material-symbols-outlined text-[18px]">rocket_launch</span>
+        <span class="">Iniciar Expediente</span>
+        </button>
+        <button class="px-space-md py-2.5 rounded-lg bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md hover:bg-secondary-fixed-dim transition-all flex items-center gap-2" type="button">
+        <span class="material-symbols-outlined text-[18px]">send</span>
+        <span class="">Revisión Rápida</span>
+        </button>
+        </div>
+        </div>
+        <div>
+        <span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider block mb-space-xs">Ghost &amp; Outline Actions</span>
+        <div class="flex flex-wrap items-center gap-space-sm">
+        <button class="px-space-lg py-2.5 rounded-lg bg-surface-container text-primary font-label-md text-label-md transition-all hover:bg-surface-container-high flex items-center gap-2" type="button">
+        <span class="material-symbols-outlined text-[18px]">visibility</span>
+        <span class="">Ver Especificación</span>
+        </button>
+        <button class="px-space-md py-2.5 rounded-lg bg-surface-container-low text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-all flex items-center gap-2" type="button">
+        <span class="material-symbols-outlined text-[18px]">close</span>
+        <span class="">Cancelar</span>
+        </button>
+        <button class="w-10 h-10 rounded-lg bg-surface-container text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors" type="button">
+        <span class="material-symbols-outlined text-[20px]">share</span>
+        </button>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="mt-space-lg pt-space-sm bg-surface-container-low/50 p-space-sm rounded-lg flex items-center justify-between text-caption font-caption text-on-surface-variant">
+        <span class="">Focus ring: 3px Cyan Flare rgba(78, 168, 222, 0.25)</span>
+        <span class="text-primary font-semibold">Border Radius: 8px (.rounded-lg)</span>
+        </div>
+        </div>
+        <div class="lg:col-span-6 p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+        <div>
+        <div class="flex items-center justify-between mb-space-md">
+        <div>
+        <h3 class="font-headline-sm text-headline-sm text-on-surface">Data Form Controls &amp; Inputs</h3>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">Accessible 44px hit-targets with integrated geometric icons.</p>
+        </div>
+        <span class="material-symbols-outlined text-secondary text-[24px]">tune</span>
+        </div>
+        <div class="space-y-space-md">
+        <div class="space-y-1">
+        <label class="font-label-sm text-label-sm text-on-surface block">Nombre de Operador Institucional</label>
+        <div class="relative">
+        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">person</span>
+        <input class="w-full pl-10 pr-4 py-2.5 bg-surface-container-low text-on-surface rounded-lg font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-lowest shadow-inner transition-colors" type="text" value="Ing. Valeria Mendoza">
+        </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+        <div class="space-y-1">
+        <label class="font-label-sm text-label-sm text-on-surface block">Módulo Orbital Activo</label>
+        <div class="relative">
+        <select class="w-full pl-3 pr-8 py-2.5 bg-surface-container-low text-on-surface rounded-lg font-body-sm text-body-sm appearance-none focus:outline-none focus:bg-surface-container-lowest transition-colors">
+        <option>Sistemas Centrales (Core)</option>
+        <option>Análisis y Métricas</option>
+        <option>Infraestructura Cloud</option>
+        </select>
+        <span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-[20px]">arrow_drop_down</span>
+        </div>
+        </div>
+        <div class="space-y-1">
+        <label class="font-label-sm text-label-sm text-on-surface block">Nivel de Cifrado</label>
+        <div class="flex items-center gap-space-xs py-2">
+        <span class="px-space-sm py-1 rounded bg-surface-container-high text-primary font-label-sm text-label-sm flex items-center gap-1">
+        <span class="w-1.5 h-1.5 rounded-full bg-primary"></span> AES-256
+                          </span>
+        <span class="px-space-sm py-1 rounded bg-secondary-fixed text-secondary font-label-sm text-label-sm">
+                            Token Activo
+                          </span>
+        </div>
+        </div>
+        </div>
+        <div class="space-y-2 pt-space-xs">
+        <div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low">
+        <div class="flex items-center gap-space-sm">
+        <span class="material-symbols-outlined text-primary text-[20px]">notifications_active</span>
+        <div>
+        <span class="font-label-sm text-label-sm text-on-surface block">Telemetría y Alertas en Tiempo Real</span>
+        <span class="font-caption text-caption text-on-surface-variant">Sincronización continua de logs corporativos</span>
+        </div>
+        </div>
+        <label class="relative inline-flex items-center cursor-pointer">
+        <input checked="" class="sr-only peer" type="checkbox">
+        <div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+        </label>
+        </div>
+        <div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low">
+        <div class="flex items-center gap-space-sm">
+        <span class="material-symbols-outlined text-secondary text-[20px]">shield</span>
+        <div>
+        <span class="font-label-sm text-label-sm text-on-surface block">Doble Factor Obligatorio (2FA)</span>
+        <span class="font-caption text-caption text-on-surface-variant">Validación con hardware key o app autenticadora</span>
+        </div>
+        </div>
+        <label class="relative inline-flex items-center cursor-pointer">
+        <input checked="" class="sr-only peer" type="checkbox">
+        <div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+        </label>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="mt-space-lg pt-space-sm flex items-center justify-between text-caption font-caption text-on-surface-variant">
+        <span class="">Accessible Contrast: 7.2:1</span>
+        <span class="">Autocomplete compatible</span>
+        </div>
+        </div>
+        </div>
+        <div class="mt-space-md grid grid-cols-1 md:grid-cols-3 gap-space-md">
+        <div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+        <div>
+        <div class="flex items-center justify-between mb-space-sm">
+        <span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Badges &amp; Status Pills</span>
+        <span class="material-symbols-outlined text-primary text-[18px]">sell</span>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-space-md">
+        <span class="px-3 py-1 rounded-full bg-primary-fixed text-primary font-label-sm text-label-sm font-semibold flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-primary"></span>
+                      Operacional
+                    </span>
+        <span class="px-3 py-1 rounded-full bg-secondary-fixed text-secondary font-label-sm text-label-sm font-semibold flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-secondary"></span>
+                      Atención
+                    </span>
+        <span class="px-3 py-1 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-outline"></span>
+                      En Espera
+                    </span>
+        <span class="px-3 py-1 rounded-full bg-surface-container-high text-primary font-caption text-caption uppercase tracking-wider">
+                      Token v1.0
+                    </span>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Pill geometries adhere strictly to full circular curvature (<code class="text-primary font-mono text-caption">rounded-full</code>) to harmonize with the circular orbital logo sweeping motif.
+                  </p>
+        </div>
+        <div class="mt-space-md pt-space-xs text-primary font-label-sm text-label-sm">
+                  Dynamic state coloring
+                </div>
+        </div>
+        <div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+        <div>
+        <div class="flex items-center justify-between mb-space-sm">
+        <span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Modular KPI Card Pattern</span>
+        <span class="material-symbols-outlined text-secondary text-[18px]">query_stats</span>
+        </div>
+        <div class="p-space-md rounded-xl bg-gradient-to-br from-surface-container-low to-surface-container-lowest mb-space-sm">
+        <div class="flex items-center justify-between mb-2">
+        <span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider">Eficiencia de Red</span>
+        <span class="px-2 py-0.5 rounded bg-surface-container-highest text-primary font-label-sm text-label-sm">+18.4%</span>
+        </div>
+        <div class="font-display-lg text-[36px] leading-tight font-extrabold text-on-surface">
+                      99.98<span class="text-secondary">%</span>
+        </div>
+        <div class="w-full bg-surface-container-highest h-2 rounded-full mt-3 overflow-hidden">
+        <div class="bg-gradient-to-r from-primary to-secondary h-full rounded-full" style="width: 94%;"></div>
+        </div>
+        </div>
+        <div class="flex items-center justify-between text-caption font-caption text-on-surface-variant">
+        <span class="">SLA Institucional: 99.90%</span>
+        <span class="text-primary font-semibold">Superado</span>
+        </div>
+        </div>
+        <div class="mt-space-md pt-space-xs text-secondary font-label-sm text-label-sm">
+                  Dual gradient indicator
+                </div>
+        </div>
+        <div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+        <div>
+        <div class="flex items-center justify-between mb-space-sm">
+        <span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Avatar &amp; Identity Clusters</span>
+        <span class="material-symbols-outlined text-tertiary text-[18px]">badge</span>
+        </div>
+        <div class="space-y-space-sm mb-space-md">
+        <div class="flex items-center gap-space-sm p-2 rounded-lg bg-surface-container-low">
+        <div class="relative">
+        <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center font-label-md text-label-md text-on-primary font-bold">
+                          VM
+                        </div>
+        <span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-secondary"></span>
+        </div>
+        <div class="min-w-0 flex-1">
+        <span class="font-label-sm text-label-sm text-on-surface font-bold block truncate">Valeria Mendoza Ramos</span>
+        <span class="font-caption text-caption text-on-surface-variant block truncate">Directora de Transformación</span>
+        </div>
+        </div>
+        <div class="flex items-center gap-space-sm p-2 rounded-lg bg-surface-container-low">
+        <div class="relative">
+        <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center font-label-md text-label-md text-on-secondary font-bold">
+                          RC
+                        </div>
+        <span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-primary"></span>
+        </div>
+        <div class="min-w-0 flex-1">
+        <span class="font-label-sm text-label-sm text-on-surface font-bold block truncate">Rodrigo Carvajal Ortiz</span>
+        <span class="font-caption text-caption text-on-surface-variant block truncate">Líder Técnico de Arquitectura</span>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="mt-space-md pt-space-xs text-tertiary font-label-sm text-label-sm">
+                  Dynamic orbital badge ring
+                </div>
+        </div>
+        </div>
+        </section>
+        <section class="w-full max-w-7xl mx-auto px-gutter mb-space-xl" id="stationery-mockups">
+        <div class="flex items-center justify-between mb-space-md">
+        <div>
+        <div class="flex items-center gap-2">
+        <span class="w-3 h-3 rounded bg-secondary"></span>
+        <span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider">Section 04</span>
+        </div>
+        <h2 class="font-headline-xl text-headline-xl text-on-surface">Corporate Stationery &amp; Brand Collateral</h2>
+        </div>
+        <span class="font-label-sm text-label-sm text-on-surface-variant hidden sm:inline-block">High-Precision Physical Standards</span>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md items-stretch">
+        <div class="lg:col-span-5 p-space-xl rounded-xl bg-gradient-to-br from-surface-container-lowest to-surface-container-low shadow-sm flex flex-col justify-between relative overflow-hidden">
+        <div class="absolute -right-16 -bottom-16 w-56 h-56 rounded-full bg-secondary-fixed/20 pointer-events-none blur-xl"></div>
+        <div>
+        <div class="flex items-center justify-between mb-space-md">
+        <span class="font-caption text-caption uppercase tracking-wider text-on-surface-variant">Business Card Specimen • 85 × 55 mm</span>
+        <span class="px-space-xs py-0.5 rounded bg-primary-fixed text-primary font-label-sm text-label-sm">Front &amp; Back</span>
+        </div>
+        <div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-md mb-space-md relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-primary-fixed/40 to-transparent rounded-bl-full pointer-events-none"></div>
+        <div class="flex items-start justify-between mb-space-lg">
+        <div class="flex items-center gap-2">
+        <img alt="logo.jpg" class="h-7 w-auto object-contain" src="assets/img/logo-fundaserinco.png">
+        <div>
+        <span class="font-label-md text-label-md font-bold text-on-surface block leading-tight">Fundaserinco</span>
+        <span class="font-caption text-caption text-on-surface-variant block">Corporación de Servicios</span>
+        </div>
+        </div>
+        <span class="font-caption text-caption text-secondary font-semibold uppercase">Oficial</span>
+        </div>
+        <div class="space-y-1 mb-space-md">
+        <div class="font-headline-sm text-headline-sm font-bold text-on-surface">Valeria Mendoza Ramos</div>
+        <div class="font-body-sm text-body-sm text-primary font-medium">Directora de Soluciones Tecnológicas</div>
+        </div>
+        <div class="grid grid-cols-2 gap-space-xs pt-space-sm font-caption text-caption text-on-surface-variant">
+        <div>
+        <span class="block text-outline">Contacto:</span>
+        <span class="text-on-surface font-medium">+58 (212) 800-SERINCO</span>
+        </div>
+        <div>
+        <span class="block text-outline">Correo Institucional:</span>
+        <span class="text-on-surface font-medium">vmendoza@fundaserinco.org</span>
+        </div>
+        </div>
+        </div>
+        <div class="p-space-md rounded-2xl bg-[#005a8b] text-on-primary shadow-md relative overflow-hidden flex items-center justify-between gap-3"><div class="flex items-center gap-3 min-w-0"><div class="w-16 h-9 rounded-md bg-white flex items-center justify-center p-1 shrink-0 shadow-sm"><img alt="Fundaserinco logo" class="w-full h-full object-contain" src="assets/img/logo-fundaserinco.png"></div><div class="flex flex-col justify-center min-w-0"><span class="font-display-lg text-[22px] leading-tight font-extrabold text-white tracking-tight">fundaserinco</span><span class="font-caption text-[11px] text-white/90 font-medium tracking-wide mt-0.5">www.fundaserinco.com</span></div></div><div class="w-11 h-11 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center shrink-0 border border-white/15"><span class="material-symbols-outlined text-white text-[24px]">qr_code_2</span></div></div>
+        </div>
+        <div class="mt-space-md pt-space-xs text-caption font-caption text-on-surface-variant">
+                  Impresión: Couché Mate 350g • Reserva UV brillante sobre logotipo orbital.
+                </div>
+        </div>
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+        <div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+        <div>
+        <div class="flex items-center justify-between mb-space-sm">
+        <span class="font-caption text-caption uppercase tracking-wider text-on-surface-variant">Membrete Oficial DIN A4</span>
+        <span class="material-symbols-outlined text-primary text-[18px]">description</span>
+        </div>
+        <div class="p-space-md rounded-lg bg-surface-container-low shadow-inner mb-space-sm aspect-[1/1.414] flex flex-col justify-between relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-tertiary to-secondary"></div>
+        <div>
+        <div class="flex items-center justify-between pt-1 mb- space-sm">
+        <div class="flex items-center gap-1.5">
+        <img alt="logo.jpg" class="h-5 w-auto object-contain" src="assets/img/logo-fundaserinco.png">
+        <span class="font-caption text-[10px] font-bold text-on-surface">Fundaserinco</span>
+        </div>
+        <span class="font-caption text-[9px] text-on-surface-variant">OF-2025-089</span>
+        </div>
+        <div class="w-1/3 h-1.5 bg-surface-container-highest rounded my-2"></div>
+        <div class="space-y-1 my-3">
+        <div class="w-full h-1 bg-outline-variant/30 rounded"></div>
+        <div class="w-5/6 h-1 bg-outline-variant/30 rounded"></div>
+        <div class="w-4/6 h-1 bg-outline-variant/30 rounded"></div>
+        <div class="w-full h-1 bg-outline-variant/30 rounded"></div>
+        <div class="w-3/4 h-1 bg-outline-variant/30 rounded"></div>
+        </div>
+        </div>
+        <div class="pt-space-xs text-[9px] font-caption text-on-surface-variant flex items-center justify-between">
+        <span class="">Pereira, Colombia</span>
+        <span class="">Página 01 / 01</span>
+        </div>
+        </div>
+        </div>
+        <div class="text-caption font-caption text-on-surface-variant">
+                    Papel Bond Extra Blanco 90g • Margen de seguridad: 25mm perimetral.
+                  </div>
+        </div>
+        <div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+        <div>
+        <div class="flex items-center justify-between mb-space-sm">
+        <span class="font-caption text-caption uppercase tracking-wider text-on-surface-variant">Credencial de Acceso / ID Badge</span>
+        <span class="material-symbols-outlined text-secondary text-[18px]">badge</span>
+        </div>
+        <div class="p-space-md rounded-xl bg-surface-container-lowest shadow-md mb-space-sm aspect-[1/1.4] flex flex-col items-center justify-between text-center relative overflow-hidden">
+        <div class="w-12 h-2 rounded-full bg-surface-container-high mb-2"></div>
+        <div class="flex items-center justify-center gap-1.5 mb-2">
+        <img alt="logo.jpg" class="h-6 w-auto object-contain" src="assets/img/logo-fundaserinco.png">
+        <span class="font-label-sm text-label-sm font-bold text-on-surface">Fundaserinco</span>
+        </div>
+        <div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold font-headline-md my-1 shadow-sm">
+                        VM
+                      </div>
+        <div>
+        <div class="font-label-md text-label-md font-bold text-on-surface">Valeria Mendoza</div>
+        <div class="font-caption text-caption text-secondary font-semibold uppercase">Acceso Nivel 4 • Core Data</div>
+        </div>
+        <div class="w-full bg-surface-container-low p-1.5 rounded flex items-center justify-between font-caption text-[10px] text-on-surface-variant">
+        <span class="">ID: #990-281</span>
+        <span class="text-primary font-bold">CHIP RFID ACTIVO</span>
+        </div>
+        </div>
+        </div>
+        <div class="text-caption font-caption text-on-surface-variant">
+                    PVC Laminado 750 micras con chip contactless y lanyard azul corporativo.
+                  </div>
+        </div>
+        </div>
+        </div>
+        </section>
+        <section class="w-full max-w-7xl mx-auto px-gutter mb-space-xl">
+        <div class="flex items-center justify-between mb-space-md">
+        <div>
+        <div class="flex items-center gap-2">
+        <span class="w-3 h-3 rounded bg-primary"></span>
+        <span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider">Section 05</span>
+        </div>
+        <h2 class="font-headline-xl text-headline-xl text-on-surface">Developer Implementation &amp; Tokens</h2>
+        </div>
+        <span class="font-label-sm text-label-sm text-on-surface-variant hidden sm:inline-block">Production-Ready Assets</span>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+        <div class="lg:col-span-12 p-space-lg rounded-xl bg-[#131b2e] text-inverse-on-surface shadow-md flex flex-col justify-between font-mono border border-outline-variant/30">
+          <div>
+            <div class="flex items-center justify-between mb-space-sm font-sans">
+              <span class="font-label-sm text-label-sm text-primary-fixed uppercase tracking-wider font-semibold">Web Font Embed • HTML / CSS Import</span>
+              <button class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-high/20 hover:bg-surface-container-high/40 text-inverse-on-surface font-caption text-caption transition-colors cursor-pointer" id="copySnippetBtn" type="button">
+                <span class="material-symbols-outlined text-[14px]">content_copy</span>
+                <span class="">Copiar Snippet</span>
+              </button>
+            </div>
+            <div class="space-y-space-sm font-caption text-caption overflow-x-auto">
+              <div class="p-space-sm rounded-lg bg-[#0b101c] text-[#e2e7ff] font-mono leading-relaxed border border-outline-variant/20 shadow-inner">
+                <span class="text-outline-variant/80 font-medium">&lt;!-- 1. Google Fonts Embedding --&gt;</span><br>
+                <span class="text-[#91cdff]">&lt;link</span> <span class="text-surface-container-highest">rel</span>=<span class="text-[#ffb598]">"preconnect"</span> <span class="text-surface-container-highest">href</span>=<span class="text-[#ffb598]">"https://fonts.googleapis.com"</span><span class="text-[#91cdff]">&gt;</span><br>
+                <span class="text-[#91cdff]">&lt;link</span> <span class="text-surface-container-highest">rel</span>=<span class="text-[#ffb598]">"preconnect"</span> <span class="text-surface-container-highest">href</span>=<span class="text-[#ffb598]">"https://fonts.gstatic.com"</span> <span class="text-surface-container-highest">crossorigin</span><span class="text-[#91cdff]">&gt;</span><br>
+              </div>
+              <div class="p-space-sm rounded-lg bg-[#0b101c] text-[#e2e7ff] font-mono leading-relaxed border border-outline-variant/20 shadow-inner">
+                <span class="text-outline-variant/80 font-medium">/* 2. Global CSS Font-Family Definition */</span><br>
+                <span class="text-[#87ceff]">:root</span> {<br>
+                &nbsp;&nbsp;<span class="text-primary-fixed">--font-primary</span>: <span class="text-[#ffdbce]">'Plus Jakarta Sans'</span>, <span class="text-outline-variant">system-ui, -apple-system, sans-serif</span>;<br>
+                &nbsp;&nbsp;<span class="text-primary-fixed">--color-brand-blue</span>: <span class="text-[#91cdff]">#0086C8</span>;<br>
+                &nbsp;&nbsp;<span class="text-primary-fixed">--color-brand-coral</span>: <span class="text-[#ff793f]">#F27036</span>;<br>
+                &nbsp;&nbsp;<span class="text-primary-fixed">--radius-standard</span>: <span class="text-[#91cdff]">0.5rem</span>; <span class="text-outline-variant/80">/* 8px matching Fundaserinco geometry */</span><br>
+                }
+              </div>
+            </div>
+          </div>
+          <div class="mt-space-md pt-space-xs font-sans text-caption text-primary-fixed flex items-center justify-between border-t border-outline-variant/20">
+            <span class="">Licencia: Open Font License (OFL)</span>
+            <span class="text-outline-variant">Zero Runtime Performance Overhead</span>
+          </div>
+        </div>
+        </div>
+        </section>
+        <div class="w-full bg-surface-container-high/30 py-space-md">
+        <div class="max-w-7xl mx-auto px-gutter flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+        <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+        <span class="font-caption text-caption text-on-surface-variant">Fundaserinco Design System Spec • Documento Aprobado por el Comité de Marca</span>
+        </div>
+        <div class="flex items-center gap-space-md font-label-sm text-label-sm text-primary">
+        <a class="hover:underline" href="#typography-specimen">Subir al Inicio ↑</a>
+        </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER (identidad corporativa) ============ -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand">
+        <span class="site-footer__lockup">
+          <img src="assets/img/logo-simbolo.png" alt="Fundaserinco" width="26" height="26">
+          <span class="site-footer__name">Fundaserinco</span>
+        </span>
+        <span class="site-footer__desc">Verifiable engineering and technology.</span>
+        <span class="site-footer__desc">Pereira, Risaralda · Colombia</span>
+      </div>
+      <nav class="site-footer__links" aria-label="Brand manual sections">
+        <a data-path="brand-overview-and-logo-anatomy" href="#brand-overview-and-logo-anatomy">Brand &amp; Logo</a>
+        <a data-path="colorimetry-and-palettes" href="#colorimetry-and-palettes">Colorimetry</a>
+        <a data-path="typography-and-scale" href="#typography-and-scale">Typography</a>
+        <a data-path="component-library-and-ui-specs" href="#component-library-and-ui-specs">UI Components</a>
+      </nav>
+    </div>
+    <p class="site-footer__legal">© 2026 Fundaserinco. Brand guidelines &amp; design system v1.0. Pereira, Risaralda · Colombia.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
